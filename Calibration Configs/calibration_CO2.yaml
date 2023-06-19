@@ -1,0 +1,76 @@
+sensor:
+  # EZO Circuit - EC
+  # Conductivity
+  - platform: ezo
+    icon: mdi:shaker-outline
+    name: "Conductivity"
+    id: co2_ezo
+    address: 102
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: 2s
+    state_class: "measurement"
+
+button:
+  # Calibrate the temp probe to 3900 ppm
+  - platform: template
+    name: "CO2 - Calibration - 3900"
+    id: co2_cal_100
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).send_custom("cal,3900");
+
+  # Calibrate the temp probe to 0 ppm
+  - platform: template
+    name: "CO2 - Calibration - 0"
+    id: co2_cal_100
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).send_custom("cal,0");
+
+  # Perform Calibration CLEAR
+  - platform: template
+    name: "CO2 - Calibration Clear"
+    id: co2_cal_clear
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).clear_calibration();
+
+  # Perform Calibration Check
+  - platform: template
+    name: "CO2 - Calibration - check"
+    id: co2_cal_check
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).get_calibration();
+
+  # Perform Status Check
+  - platform: template
+    name: "CO2 - Staus Check"
+    id: co2_status
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).send_custom("Status");
+
+  # Get Device Firmware Version
+  - platform: template
+    name: "CO2 - Get Information"
+    id: co2_info
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).get_device_information();
+
+  # Manual Read
+  - platform: template
+    name: "CO2 - Manual Read"
+    id: co2_read
+    on_press:
+      then:
+        - lambda: |-
+            id(co2_ezo).get_state();

@@ -1,0 +1,67 @@
+sensor:
+  # EZO Circuit - EC
+  # Conductivity
+  - platform: ezo
+    icon: mdi:shaker-outline
+    name: "Conductivity"
+    id: pmp_ezo
+    address: 102
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: 2s
+    state_class: "measurement"
+
+button:
+  # Calibrate the temp probe to 146.2
+  - platform: template
+    name: "PMP - Calibration - 146.2"
+    id: pmp_cal_100
+    on_press:
+      then:
+        - lambda: |-
+            id(pmp_ezo).send_custom("cal,146.2");
+
+  # Perform Calibration CLEAR
+  - platform: template
+    name: "PMP - Calibration Clear"
+    id: pmp_cal_clear
+    on_press:
+      then:
+        - lambda: |-
+            id(pmp_ezo).clear_calibration();
+
+  # Perform Calibration Check
+  - platform: template
+    name: "PMP - Calibration - check"
+    id: pmp_cal_check
+    on_press:
+      then:
+        - lambda: |-
+            id(pmp_ezo).get_calibration();
+
+  # Perform Status Check
+  - platform: template
+    name: "PMP - Staus Check"
+    id: pmp_status
+    on_press:
+      then:
+        - lambda: |-
+            id(pmp_ezo).send_custom("Status");
+
+  # Get Device Firmware Version
+  - platform: template
+    name: "PMP - Get Information"
+    id: pmp_info
+    on_press:
+      then:
+        - lambda: |-
+            id(pmp_ezo).get_device_information();
+
+  # Manual Read
+  - platform: template
+    name: "PMP - Manual Read"
+    id: pmp_read
+    on_press:
+      then:
+        - lambda: |-
+            id(pmp_ezo).get_state();

@@ -1,0 +1,40 @@
+sensor:
+  # EZO Circuit - EC
+  # Conductivity
+  - platform: ezo
+    icon: mdi:shaker-outline
+    name: "Conductivity"
+    id: hum_ezo
+    address: 102
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: 2s
+    state_class: "measurement"
+
+button:
+  # Perform Status Check
+  - platform: template
+    name: "HUM - Staus Check"
+    id: hum_status
+    on_press:
+      then:
+        - lambda: |-
+            id(hum_ezo).send_custom("Status");
+
+  # Get Device Firmware Version
+  - platform: template
+    name: "HUM - Get Information"
+    id: hum_info
+    on_press:
+      then:
+        - lambda: |-
+            id(hum_ezo).get_device_information();
+
+  # Manual Read
+  - platform: template
+    name: "HUM - Manual Read"
+    id: hum_read
+    on_press:
+      then:
+        - lambda: |-
+            id(hum_ezo).get_state();
