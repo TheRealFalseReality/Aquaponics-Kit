@@ -1,10 +1,10 @@
 substitutions:
   # names
-  name: "aquaponics-kit"
-  friendly_name: "Aquaponics Kit"
+  name: "aquaponics-kit-calibration"
+  friendly_name: "Aquaponics Kit Calibration"
 
   # App Version - Updated: 6/2023
-  appVersion: "1.02
+  appVersion: "1.02c"
 
   # pins
   sdaPin: "23"
