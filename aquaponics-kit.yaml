@@ -159,7 +159,7 @@ sensor:
   - platform: ezo
     icon: mdi:thermometer-lines
     name: "Temperature"
-    id: temp_ezo
+    id: rtd_ezo
     address: ${addRTD}
     unit_of_measurement: "°C"
     accuracy_decimals: 2
