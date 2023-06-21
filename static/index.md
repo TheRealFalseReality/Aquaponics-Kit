@@ -5,13 +5,13 @@ This code will communitcate with all the sensors and send the data to HomeAssist
 
 **Sensors** for this kit are:  
 ```
-Temperature  
-pH   
-Conductivity (Salinity)  
-Dissolved Oxygen  
-Humidity  
-CO2 (in air)  
-Controlled Doser Pump  
+RTD - Temperature  
+PH - pH   
+EX - Conductivity (Salinity)  
+DO - Dissolved Oxygen  
+HUM - Humidity  
+CO2 - CO2 (in air)  
+PMP - Controlled Doser Pump  
 ```
 
 
