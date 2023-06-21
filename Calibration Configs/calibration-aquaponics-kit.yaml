@@ -42,7 +42,7 @@ esp32:
 
 # Enable logging
 logger:
-  # level: verbose
+  level: verbose
 
 # Enable Home Assistant API
 api:
