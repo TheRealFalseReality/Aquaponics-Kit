@@ -5,13 +5,13 @@ This code will communitcate with all the sensors and send the data to HomeAssist
 
 **Sensors** for this kit are:  
 ```
-Temperature  
-pH   
-Conductivity (Salinity)  
-Dissolved Oxygen  
-Humidity  
-CO2 (in air)  
-Controlled Doser Pump  
+RTD - Temperature  
+PH - pH   
+EC - Conductivity (Salinity)  
+DO - Dissolved Oxygen  
+HUM - Humidity  
+CO2 - CO2 (in air)  
+PMP - Controlled Doser Pump  
 ```
 
 ![Wi-Fi-aquaponics-kit-01](https://github.com/TheRealFalseReality/Aquaponics-Kit/assets/106857076/defb7d02-b80c-4f63-b4a5-78aa1691ac1f)
