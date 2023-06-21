@@ -107,7 +107,7 @@ sensor:
   # Absolute Humidity
   - platform: absolute_humidity
     name: "Absolute Humidity"
-    temperature: temp_ezo
+    temperature: rtd_ezo
     humidity: hum_ezo
     
   # EZO Circuit - pH
