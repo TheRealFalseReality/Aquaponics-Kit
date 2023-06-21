@@ -208,7 +208,7 @@ sensor:
   - platform: ezo
     icon: mdi:pump
     name: "Pump"
-    id: pump_ezo
+    id: pmp_ezo
     address: ${addDO}
     # unit_of_measurement: "mg/L"
     accuracy_decimals: 2
