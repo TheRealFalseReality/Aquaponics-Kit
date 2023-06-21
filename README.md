@@ -20,22 +20,21 @@ Controlled Doser Pump
 # Installation
 
 ## USB
-You can use the button below to install the pre-built firmware directly to your device via USB from the browser. Then, while still connected to USB, connect to WiFi, then add to HomeAssisatnt.
+Install via USB here:  
+https://therealfalsereality.github.io/Aquaponics-Kit/
 
-<esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+## ESPHome Web (.bin)
+Download latest .bin from [Releases](https://github.com/TheRealFalseReality/Aquaponics-Kit/releases) and install via [ESPHome Web](https://web.esphome.io/)  
+You will also see the calibation binary if you need to calibrate the probes.
 
-<script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>
-
-## WiFi
-The device will set up its own hotspot when it cannot connect to a WiFi network. On another device, connect to the `aquaponics-kit` network using `password` (there should be no internet access), then follow the next page that should pop up to enter your WiFi credentials. It should connect and be discoverble in your HomeAssistant instance.
-
-
-## Bluetooth Improv
-*may not always work...*
-
-<script
-  type="module"
-  src="https://www.improv-wifi.com/sdk-js/launch-button.js"
-></script>
-
-<improv-wifi-launch-button></improv-wifi-launch-button>
+## From Source
+1. Copy the code into ESPHome instance after adding an esp32 device named `Aquaponics Kit`. 
+2. Remove the following lines:
+```
+name_add_mac_suffix: true
+```
+```
+dashboard_import:
+  package_import_url: github://TheRealFalseReality/Aquaponics-Kit/aquaponics-kit.yaml@main
+```
+using source code, you can also customize anything and add your own sensors! Make it your own!
