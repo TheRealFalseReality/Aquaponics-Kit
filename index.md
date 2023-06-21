@@ -7,7 +7,7 @@ This code will communitcate with all the sensors and send the data to HomeAssist
 ```
 RTD - Temperature  
 PH - pH   
-EX - Conductivity (Salinity)  
+EC - Conductivity (Salinity)  
 DO - Dissolved Oxygen  
 HUM - Humidity  
 CO2 - CO2 (in air)  
