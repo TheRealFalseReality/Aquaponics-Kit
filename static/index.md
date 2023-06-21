@@ -14,7 +14,7 @@ CO2 (in air)
 Controlled Doser Pump  
 ```
 
-[Adafruit HUZZAH32 ESP32 Feather Pinout.pdf](https://github.com/TheRealFalseReality/Aquaponics-Kit/files/11812341/Adafruit.HUZZAH32.ESP32.Feather.Pinout.pdf)
+![Wi-Fi-aquaponics-kit-01](https://github.com/TheRealFalseReality/Aquaponics-Kit/assets/106857076/defb7d02-b80c-4f63-b4a5-78aa1691ac1f)
 
 
 # Installation
