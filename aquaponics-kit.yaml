@@ -215,11 +215,6 @@ text_sensor:
       return {"${appVersion}"};
     entity_category: "diagnostic"
 
-  # Date Updated
-  - platform: version
-    name: "Date Updated"
-    hide_timestamp: true
-
   # Wifi Info
   - platform: wifi_info
     ip_address:
