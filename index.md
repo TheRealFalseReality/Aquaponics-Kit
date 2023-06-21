@@ -27,11 +27,11 @@ You can use the button below to install the pre-built firmware directly to your 
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>
 
-## Connect to via WiFi
+## Connect to WiFi via WiFi
 The device will set up its own hotspot when it cannot connect to a WiFi network. On another device, connect to the `aquaponics-kit` network using `password` (there should be no internet access), then follow the next page that should pop up to enter your WiFi credentials. It should connect and be discoverble in your HomeAssistant instance.
 
 
-## Connect to via Bluetooth Improv
+## Connect to WiFi via Bluetooth Improv
 *may not always work...*
 
 <script
