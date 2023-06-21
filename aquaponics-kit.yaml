@@ -204,6 +204,17 @@ sensor:
     update_interval: 60s
     state_class: "measurement"
 
+  # EZO Circuit - Pump
+  - platform: ezo
+    icon: mdi:pump
+    name: "Pump"
+    id: pump_ezo
+    address: ${addDO}
+    # unit_of_measurement: "mg/L"
+    accuracy_decimals: 2
+    update_interval: 60s
+    state_class: "measurement"
+
 text_sensor: 
   # Aquaponics Firmware Version
   - platform: template
