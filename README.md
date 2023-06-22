@@ -28,7 +28,7 @@ Download latest .bin from [Releases](https://github.com/TheRealFalseReality/Aqua
 You will also see the calibation binary if you need to calibrate the probes.
 
 ## From Source
-1. Copy the code into ESPHome instance after adding an esp32 device named `Aquaponics Kit`. 
+1. Copy the contents of `aquaponics-kit.yaml` into ESPHome instance after adding an esp32 device named `Aquaponics Kit`. 
 2. Remove the following lines:
 ```
 name_add_mac_suffix: true
