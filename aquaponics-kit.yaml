@@ -216,6 +216,16 @@ sensor:
     state_class: "measurement"
 
 text_sensor: 
+  # Hostname
+  - platform: template
+    name: "Hostname"
+    id: hostname
+    icon: mdi:cellphone-arrow-down
+    update_interval: 600s
+    lambda: |-
+      return {"${name}"};
+    entity_category: "diagnostic"
+    
   # Aquaponics Firmware Version
   - platform: template
     name: "Aquaponics Firmware"
