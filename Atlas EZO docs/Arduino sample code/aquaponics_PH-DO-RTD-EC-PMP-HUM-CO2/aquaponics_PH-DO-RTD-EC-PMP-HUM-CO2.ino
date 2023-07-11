@@ -10,10 +10,10 @@
 WiFiClient client;                                              //declare that this device connects to a Wi-Fi network,create a connection to a specified internet IP address
 
 //----------------Fill in your Wi-Fi / ThingSpeak Credentials-------
-const String ssid = "Wifi Name";                                 //The name of the Wi-Fi network you are connecting to
-const String pass = "Wifi Password";                             //Your WiFi network password
-const long myChannelNumber = 1234566;                            //Your Thingspeak channel number
-const char * myWriteAPIKey = "XXXXXXXXXXXXXXXX";                 //Your ThingSpeak Write API Key
+const String ssid = "XXXX";                                 //The name of the Wi-Fi network you are connecting to
+const String pass = "XXXX";                             //Your WiFi network password
+const long myChannelNumber = XXXX;                            //Your Thingspeak channel number
+const char * myWriteAPIKey = "XXXX";                 //Your ThingSpeak Write API Key
 //------------------------------------------------------------------
 
 Ezo_board PH = Ezo_board(99, "PH");       //create a PH circuit object, who's address is 99 and name is "PH"
@@ -239,7 +239,7 @@ void step4() {
   }
 
   Serial.println();
-  pump_function(PUMP_BOARD, EZO_BOARD, COMPARISON_VALUE, PUMP_DOSE, IS_GREATER_THAN);
+  // pump_function(PUMP_BOARD, EZO_BOARD, COMPARISON_VALUE, PUMP_DOSE, IS_GREATER_THAN);
 }
 
 
