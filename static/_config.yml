@@ -1,4 +1,4 @@
 # CHANGEME: Set these variable to your liking
-title: ESPHome Project Template
-description: Powered by ESPHome and ESP Web Tools
-theme: jekyll-theme-slate
+title: ESPHome Atlas Scientific Wifi Aquaponics Kit
+description: Powered by ESPHome and ESP Web Tools and made for HomeAssistant
+theme: jekyll-theme-modernist

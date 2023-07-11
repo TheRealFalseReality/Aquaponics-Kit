@@ -4,7 +4,7 @@ substitutions:
   friendly_name: "Aquaponics Kit"
 
   # App Version - Updated: 6/2023
-  appVersion: "1.01"
+  appVersion: "1.02"
 
   # pins
   sdaPin: "23"
@@ -30,7 +30,7 @@ esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
   # Automatically add the mac address to the name
-  # name_add_mac_suffix: true
+  name_add_mac_suffix: true
   project:
     name: TheRealFalseReality.Aquaponics-Kit
     version: "${appVersion}"
@@ -42,25 +42,18 @@ esp32:
 
 # Enable logging
 logger:
-  level: verbose
+  # level: verbose
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "WFa4tOesiN1m6fKdzMIaj9EBTbHyUl03D2RwxhFd1jQ="
 
 ota:
-  password: "24a14d7afe18b00617ef0e52f507a1c1"
 
-# dashboard_import:
-#   package_import_url: github://TheRealFalseReality/**TODO**@main
-#   # import_full_config: true
+dashboard_import:
+  package_import_url: github://TheRealFalseReality/Aquaponics-Kit/aquaponics-kit.yaml@main
+  # import_full_config: true
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     password: "password"
 
@@ -114,7 +107,7 @@ sensor:
   # Absolute Humidity
   - platform: absolute_humidity
     name: "Absolute Humidity"
-    temperature: temp_ezo
+    temperature: rtd_ezo
     humidity: hum_ezo
     
   # EZO Circuit - pH
@@ -166,7 +159,7 @@ sensor:
   - platform: ezo
     icon: mdi:thermometer-lines
     name: "Temperature"
-    id: temp_ezo
+    id: rtd_ezo
     address: ${addRTD}
     unit_of_measurement: "°C"
     accuracy_decimals: 2
@@ -211,7 +204,28 @@ sensor:
     update_interval: 60s
     state_class: "measurement"
 
+  # EZO Circuit - Pump
+  - platform: ezo
+    icon: mdi:pump
+    name: "Pump"
+    id: pmp_ezo
+    address: ${addDO}
+    # unit_of_measurement: "mg/L"
+    accuracy_decimals: 2
+    update_interval: 60s
+    state_class: "measurement"
+
 text_sensor: 
+  # Hostname
+  - platform: template
+    name: "Hostname"
+    id: hostname
+    icon: mdi:cellphone-arrow-down
+    update_interval: 600s
+    lambda: |-
+      return {"${name}"};
+    entity_category: "diagnostic"
+    
   # Aquaponics Firmware Version
   - platform: template
     name: "Aquaponics Firmware"
@@ -221,11 +235,6 @@ text_sensor:
     lambda: |-
       return {"${appVersion}"};
     entity_category: "diagnostic"
-
-  # Date Updated
-  - platform: version
-    name: "Date Updated"
-    hide_timestamp: true
 
   # Wifi Info
   - platform: wifi_info

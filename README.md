@@ -1,21 +1,40 @@
-# ESPHome Project Template
+# Atas Scientific Wi-Fi Aquaponics Kit for ESPHome
 
-This repo serves as a template for creating a new ESPHome project.
+Code for [**Atas Scientific Wi-Fi Aquaponics Kit**](https://atlas-scientific.com/product/wi-fi-aquaponics-kit/) to be compatable with [**ESPHome**](https://esphome.io/) and [**HomeAssistant**](https://www.home-assistant.io/) using [**Adafruit HUZZAH32 – ESP32 Feather Board**](https://www.adafruit.com/product/3405).  
+This code will communitcate with all the sensors and send the data to HomeAssistant. The ESP device should be automatically discovered in your HomeAssitant instance once ready. Another .bin file as well as source code for calibration is located on the Releases page for this project.    
 
-It includes a GitHub workflow that will automatically build the configuration(s) and then deploys a simple 
-website via GitHub pages that utilises [ESP Web Tools](https://esphome.github.io/esp-web-tools/) for users to 
-easily install your project onto their device.
+**Sensors** for this kit are:  
+```
+RTD - Temperature  
+PH - pH   
+EC - Conductivity (Salinity)  
+DO - Dissolved Oxygen  
+HUM - Humidity  
+CO2 - CO2 (in air)  
+PMP - Controlled Doser Pump  
+```
 
-## Instructions
+![Wi-Fi-aquaponics-kit-01](https://github.com/TheRealFalseReality/Aquaponics-Kit/assets/106857076/defb7d02-b80c-4f63-b4a5-78aa1691ac1f)
 
-1. Use this repo template to [generate](https://github.com/esphome/esphome-project-template/generate) your own repository.
-   - Make sure to check `Include all branches` so that GitHub Pages is automatically enabled.
-2. Clone your new repository.
-3. Add your project specific YAML configuration(s) along with the contents of the `project-template-....yaml` files, taking note of the comments in this template file and name accordingly.
-4. 
-    a. Update [.github/workflows/publish.yml](.github/workflows/publish.yml) to contain your own YAML config filename(s).
-    b. Update [.github/workflows/ci.yml](.github/workflows/ci.yml) to contain your own YAML config filename(s).
-5. Update [static/_config.yml](static/_config.yml) to change the title, description and basic theme of the generated website.
-6. Add more content to the [static/index.md](static/index.md) file to explain your project.
-    Make sure to leave the installation code tags in place so users get the install button.
-7. Push your changes to the repository and GitHub Actions will automatically build and deploy your project.
+
+# Installation
+
+## USB
+Install via USB here:  
+https://therealfalsereality.github.io/Aquaponics-Kit/
+
+## ESPHome Web (.bin)
+Download latest .bin from [Releases](https://github.com/TheRealFalseReality/Aquaponics-Kit/releases) and install via [ESPHome Web](https://web.esphome.io/)  
+You will also see the calibation binary if you need to calibrate the probes.
+
+## From Source
+1. Copy the contents of `aquaponics-kit.yaml` into ESPHome instance after adding an esp32 device named `Aquaponics Kit`. 
+2. Remove the following lines:
+```
+name_add_mac_suffix: true
+```
+```
+dashboard_import:
+  package_import_url: github://TheRealFalseReality/Aquaponics-Kit/aquaponics-kit.yaml@main
+```
+using source code, you can also customize anything and add your own sensors! Make it your own!
