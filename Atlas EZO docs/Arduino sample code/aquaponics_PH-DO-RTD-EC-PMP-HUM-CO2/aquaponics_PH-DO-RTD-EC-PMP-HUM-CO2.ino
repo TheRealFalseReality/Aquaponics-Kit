@@ -12,7 +12,7 @@ WiFiClient client;                                              //declare that t
 //----------------Fill in your Wi-Fi / ThingSpeak Credentials-------
 const String ssid = "XXXX";                                 //The name of the Wi-Fi network you are connecting to
 const String pass = "XXXX";                             //Your WiFi network password
-const long myChannelNumber = XXXX;                            //Your Thingspeak channel number
+const long myChannelNumber = 2216728;                            //Your Thingspeak channel number
 const char * myWriteAPIKey = "XXXX";                 //Your ThingSpeak Write API Key
 //------------------------------------------------------------------
 
