@@ -4,7 +4,7 @@ substitutions:
   friendly_name: "Aquaponics Kit"
 
   # App Version - Updated: 6/2023
-  appVersion: "1.02"
+  appVersion: "1.03"
 
   # pins
   sdaPin: "23"
@@ -143,16 +143,16 @@ sensor:
     accuracy_decimals: 3
     state_class: "measurement"
 
-  # # Conductivity
-  # - platform: copy 
-  #   source_id: ec_ezo
-  #   name: "Specific Gravity"
-  #   icon: mdi:flash
-  #   filters:
-  #     - lambda: return x;
-  #   unit_of_measurement: "μS/cm"
-  #   accuracy_decimals: 3
-  #   state_class: "measurement"
+  # Conductivity
+  - platform: copy 
+    source_id: ec_ezo
+    name: "Specific Gravity"
+    icon: mdi:flash
+    filters:
+      - lambda: return x;
+    unit_of_measurement: "μS/cm"
+    accuracy_decimals: 3
+    state_class: "measurement"
 
   # EZO Circuit - RTD
   # Temperature
