@@ -225,7 +225,7 @@ void step4() {
   Serial.print("  ");
   receive_and_print_reading(EC);             //get the reading from the EC circuit
   if (EC.get_error() == Ezo_board::SUCCESS) {                                          //if the EC reading was successful (back in step 1)
-    ThingSpeak.setField(4, String(EC.get_last_received_reading(), 0));                 //assign EC readings to the fourth column of thingspeak channel
+    ThingSpeak.setField(4, String(EC.get_last_received_reading(), 3));                 //assign EC readings to the fourth column of thingspeak channel
   }
   Serial.print("  ");
   receive_and_print_reading(HUM);           //get the reading from the humidity circuit
