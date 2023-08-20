@@ -85,6 +85,7 @@ button:
   - platform: template
     name: "EC - Output - Conductivity"
     id: ec_cond
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -97,6 +98,7 @@ button:
   - platform: template
     name: "EC - Output - TDS"
     id: ec_tds
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -109,6 +111,7 @@ button:
   - platform: template
     name: "EC - Get Information"
     id: ec_info
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -118,6 +121,7 @@ button:
   - platform: template
     name: "EC - Set Probe Type K1"
     id: ec_probe_type
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -127,6 +131,7 @@ button:
   - platform: template
     name: "EC - Get Probe Value"
     id: ec_probe_value
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -136,6 +141,7 @@ button:
   - platform: template
     name: "EC - Manual Read"
     id: ec_read
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -145,6 +151,7 @@ button:
   - platform: template
     name: "EC - Calibration - 0"
     id: ec_cal_0
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -154,6 +161,7 @@ button:
   - platform: template
     name: "EC - Calibration - low 12880"
     id: ec_cal_low
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -163,6 +171,7 @@ button:
   - platform: template
     name: "EC - Calibration - high 80000"
     id: ec_cal_high
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -172,6 +181,7 @@ button:
   - platform: template
     name: "EC - Calibration Clear"
     id: ec_cal_clear
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -181,6 +191,7 @@ button:
   - platform: template
     name: "EC - Calibration - check"
     id: ec_cal_check
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -190,6 +201,7 @@ button:
   - platform: template
     name: "EC - Staus Check"
     id: ec_status
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -199,6 +211,7 @@ button:
   - platform: template
     name: "EC - TDS Value"
     id: ec_tds_value
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -209,6 +222,7 @@ button:
   - platform: template
     name: "EC - Get Enabled Parameter(s)"
     id: ec_param
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-

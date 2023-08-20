@@ -84,6 +84,7 @@ button:
   - platform: template
     name: "HUM - Staus Check"
     id: hum_status
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -93,6 +94,7 @@ button:
   - platform: template
     name: "HUM - Get Information"
     id: hum_info
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -102,6 +104,7 @@ button:
   - platform: template
     name: "HUM - Manual Read"
     id: hum_read
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-

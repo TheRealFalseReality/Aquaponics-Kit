@@ -84,6 +84,7 @@ button:
   - platform: template
     name: "PMP - Calibration - 146.2"
     id: pmp_cal_100
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -93,6 +94,7 @@ button:
   - platform: template
     name: "PMP - Calibration Clear"
     id: pmp_cal_clear
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -102,6 +104,7 @@ button:
   - platform: template
     name: "PMP - Calibration - check"
     id: pmp_cal_check
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -111,6 +114,7 @@ button:
   - platform: template
     name: "PMP - Staus Check"
     id: pmp_status
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -120,6 +124,7 @@ button:
   - platform: template
     name: "PMP - Get Information"
     id: pmp_info
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -129,6 +134,7 @@ button:
   - platform: template
     name: "PMP - Manual Read"
     id: pmp_read
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-

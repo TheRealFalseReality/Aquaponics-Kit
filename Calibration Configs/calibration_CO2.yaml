@@ -84,6 +84,7 @@ button:
   - platform: template
     name: "CO2 - Calibration - 3900"
     id: co2_cal_3900
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -93,6 +94,7 @@ button:
   - platform: template
     name: "CO2 - Calibration - 0"
     id: co2_cal_0
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -102,6 +104,7 @@ button:
   - platform: template
     name: "CO2 - Calibration Clear"
     id: co2_cal_clear
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -111,6 +114,7 @@ button:
   - platform: template
     name: "CO2 - Calibration - check"
     id: co2_cal_check
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -120,6 +124,7 @@ button:
   - platform: template
     name: "CO2 - Staus Check"
     id: co2_status
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -129,6 +134,7 @@ button:
   - platform: template
     name: "CO2 - Get Information"
     id: co2_info
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
@@ -138,6 +144,7 @@ button:
   - platform: template
     name: "CO2 - Manual Read"
     id: co2_read
+    entity_category: "Config"
     on_press:
       then:
         - lambda: |-
