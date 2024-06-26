@@ -4,7 +4,7 @@ substitutions:
   friendly_name: "Aquaponics Kit"
 
   # App Version - Updated: 6/2023
-  appVersion: "1.03"
+  appVersion: "1.0.4"
 
   # pins
   sdaPin: "23"
