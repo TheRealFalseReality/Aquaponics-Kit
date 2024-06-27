@@ -31,6 +31,9 @@ dashboard_import:
 # Enable logging
 logger:
   level: "${logger}"
+  
+ota:
+  - platform: esphome
 
 api:
   
