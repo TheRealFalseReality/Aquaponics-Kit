@@ -13,7 +13,7 @@ jobs:
           - aquaponics-kit.yaml
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Build ESPHome firmware to verify configuration
         uses: esphome/build-action@v1.5.0
         with:
