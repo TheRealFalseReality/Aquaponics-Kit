@@ -2,7 +2,7 @@
   "chipFamily": "ESP32",
   "ota": {
     "path": "aquaponics-kit-esp32/aquaponics-kit-esp32.ota.bin",
-    "md5": "4d9dd4347e350632b24fbb3646c95756"
+    "md5": "eb723e9de4f6bdc781070253387d080c"
   },
   "parts": [
     {
