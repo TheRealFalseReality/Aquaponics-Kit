@@ -5,9 +5,9 @@ substitutions:
 
 # esphome:
 #     on_boot: 
-#         priority: 200
+#         priority: 800
 #         then:
-#           - button.press: send_selected_ph
+#           - button.press: send_selected_do
 
 sensor:
   # EZO Circuits (yellow - SCL/RX, blue - SDA/TX)
