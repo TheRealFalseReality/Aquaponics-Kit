@@ -4,7 +4,7 @@ substitutions:
   friendly_name: "Aquaponics Kit"
 
   # App Version - Updated: 6/2023
-  app_version: "2026.6"
+  app_version: "24.11.0"
 
   # EZO Circuit Addresses
   # pH circuit, who's address is 99
@@ -23,15 +23,15 @@ substitutions:
   addCO2: "105"
 
 packages:
-  device_base: !include common/device_base.yaml
   aquaponics: !include common/aquaponics.yaml
-  ezo_ph: !include common/ezo_ph.yaml
-  ezo_ec: !include common/ezo_ec.yaml
-  # ezo_orp: !include common/ezo_orp.yaml
-  ezo_hum: !include common/ezo_hum.yaml
-  ezo_rtd: !include common/ezo_rtd.yaml
-  ezo_co2: !include common/ezo_co2.yaml
-  # ezo_do: !include common/ezo_do.yaml
-  ezo_pmp: !include common/ezo_pmp.yaml
-  # debug: !include common/debug.yaml
-  # ezo_commands: !include common/ezo_commands.yaml
+  TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
+  TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
+  TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
+  # TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
+  TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
+  TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
+  TheRealFalseReality.c02: github://TheRealFalseReality/aquapi/common/ezo_co2.yaml
+  # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
+  TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
+  # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
+  # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
