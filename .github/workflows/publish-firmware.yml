@@ -17,7 +17,7 @@ jobs:
       files: |
         aquaponics-kit.yaml
       esphome-version: 2024.11.1
-      combined-name: Atlas Scientific Wifi Aquaponics Kit
+      # combined-name: Atlas Scientific Wifi Aquaponics Kit
 
       release-summary: ${{ github.event.release.body }}
       release-url: ${{ github.event.release.html_url }}
