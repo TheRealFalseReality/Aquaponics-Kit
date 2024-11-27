@@ -3,7 +3,6 @@ substitutions:
   name: "aquaponics-kit"
   friendly_name: "Aquaponics Kit"
 
-  # App Version - Updated: 6/2023
   app_version: "24.11.2"
 
   # EZO Circuit Addresses
