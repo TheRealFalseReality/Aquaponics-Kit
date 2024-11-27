@@ -1,6 +1,6 @@
 {
   "name": "Aquaponics Kit",
-  "version": "24.11.1",
+  "version": "24.11.2",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
@@ -8,9 +8,9 @@
       "chipFamily": "ESP32",
       "ota": {
         "path": "aquaponics-kit-esp32.ota.bin",
-        "md5": "ca9741ce1e6ca73515d806ce82eaeb63",
-        "summary": "**Full Changelog**: https://github.com/TheRealFalseReality/Aquaponics-Kit/compare/24.11.0...24.11.1",
-        "release_url": "https://github.com/TheRealFalseReality/Aquaponics-Kit/releases/tag/24.11.1"
+        "md5": "71101385698f05d39ac7293efa07b67f",
+        "summary": "### What's Changed\r\n\r\n* 24.11.2 - OTA via HTTPS and bugfixes\r\n\r\n**Full Changelog**: https://github.com/TheRealFalseReality/Aquaponics-Kit/compare/24.11.1...24.11.2",
+        "release_url": "https://github.com/TheRealFalseReality/Aquaponics-Kit/releases/tag/24.11.2"
       },
       "parts": [
         {
