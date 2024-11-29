@@ -4,6 +4,9 @@ substitutions:
   sorting_group_config_weight: '99'
   import: "false"
 
+  # I2C pins - Adafruit HUZZAH32 – ESP32 Feather Board
+  sdaPin: "23" # yellow/TX
+
 esphome:
   min_version: 2024.6.0
   name: "${name}"
@@ -12,7 +15,7 @@ esphome:
   name_add_mac_suffix: true
   comment: "Aquaonics Kit for ESP32"
   project:
-    name: therealfalsereality.aquapi
+    name: therealfalsereality.aquaponics_kit
     version: "${app_version}"
 
 dashboard_import:
