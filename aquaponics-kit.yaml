@@ -3,7 +3,7 @@ substitutions:
   name: "aquaponics-kit"
   friendly_name: "Aquaponics Kit"
 
-  app_version: "24.11.2.1"
+  app_version: "24.11.2.2"
 
   # EZO Circuit Addresses
   # pH circuit, who's address is 99
