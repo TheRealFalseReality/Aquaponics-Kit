@@ -1,39 +1,31 @@
 substitutions:
-  sorting_group_misc_weight: '97'
-  sorting_group_diagnostic_weight: '98'
-  sorting_group_config_weight: '99'
-  import: "false"
+  # names
+  name: "aquaponics-kit"
+  friendly_name: "Aquaponics Kit"
+  comment: "Aquaponics Kit for ESP32"
+  project_name: "therealfalsereality.aquaponics_kit"
 
   # I2C pins - Adafruit HUZZAH32 – ESP32 Feather Board
   sdaPin: "23" # yellow/TX
-
-esphome:
-  min_version: 2024.6.0
-  name: "${name}"
-  friendly_name: "${friendly_name}"
-  # Automatically add the mac address to the name
-  name_add_mac_suffix: true
-  comment: "Aquaonics Kit for ESP32"
-  project:
-    name: therealfalsereality.aquaponics_kit
-    version: "${app_version}"
+  # EZO Circuit Addresses
+  # pH circuit, who's address is 99
+  addPH: "99"
+  # EC circuit, who's address is 100
+  addEC: "100"
+  # DO circuit, who's address is 97
+  addDO: "97"
+  # RTD circuit, who's address is 102
+  addRTD: "102"
+  # PMP circuit, who's address is 103
+  addPMP: "103"
+  # HUM circuit, who's address is 111
+  addHUM: "111"
+  # CO2 circuit, who's address is 105
+  addCO2: "105"
 
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics-Kit/aquaponics-kit.yaml
   import_full_config: "${import}"
-
-web_server:
-  version: 3
-  sorting_groups:
-    - id: sorting_group_diagnostic
-      name: "Aquaonics Kit Diagnostic"
-      sorting_weight: ${sorting_group_diagnostic_weight}
-    - id: sorting_group_config
-      name: "Aquaonics Kit Configuration"
-      sorting_weight: ${sorting_group_config_weight}
-    - id: sorting_group_misc
-      name: "Misc. Sensors"
-      sorting_weight: ${sorting_group_misc_weight}
 
 text_sensor: 
   # AquaPi Version

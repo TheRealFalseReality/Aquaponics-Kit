@@ -1,25 +1,5 @@
 substitutions:
-  # names
-  name: "aquaponics-kit"
-  friendly_name: "Aquaponics Kit"
-
   app_version: "24.11.2.2"
-
-  # EZO Circuit Addresses
-  # pH circuit, who's address is 99
-  addPH: "99"
-  # EC circuit, who's address is 100
-  addEC: "100"
-  # DO circuit, who's address is 97
-  addDO: "97"
-  # RTD circuit, who's address is 102
-  addRTD: "102"
-  # PMP circuit, who's address is 103
-  addPMP: "103"
-  # HUM circuit, who's address is 111
-  addHUM: "111"
-  # CO2 circuit, who's address is 105
-  addCO2: "105"
 
 packages:
   aquaponics: !include common/aquaponics.yaml
