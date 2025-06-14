@@ -6,11 +6,11 @@ packages:
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
-  # TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
   TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
   TheRealFalseReality.c02: github://TheRealFalseReality/aquapi/common/ezo_co2.yaml
-  # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
   # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
   # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
+  # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
+  # TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
