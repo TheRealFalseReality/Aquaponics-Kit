@@ -3,7 +3,7 @@ substitutions:
   name: "aquaponics-kit"
   friendly_name: "Aquaponics Kit"
   comment: "Aquaponics Kit for ESP32"
-  project_name: "therealfalsereality.aquaponics_kit"
+  project_name: "therealfalsereality.aquaponics-kit"
   import: "false"
 
   # I2C pins - Adafruit HUZZAH32 – ESP32 Feather Board
