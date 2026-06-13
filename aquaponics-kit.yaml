@@ -1,5 +1,10 @@
 substitutions:
-  app_version: "24.11.2.2"
+  app_version: "26.6.0"
+  # names
+  name: "aquaponics-kit"
+  friendly_name: "Aquaponics Kit"
+  comment: "Aquaponics Kit for ESP32"
+  project_name: "therealfalsereality.aquaponics-kit"
 
 packages:
   aquaponics: !include common/aquaponics.yaml
