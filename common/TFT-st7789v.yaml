@@ -28,7 +28,7 @@ light:
     name: "Screen Backlight"
     restore_mode: ALWAYS_ON
 
-Formal power supply for the TFT
+# Formal power supply for the TFT
 power_supply:
   - id: tft_power
     pin: GPIO21
