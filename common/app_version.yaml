@@ -1,7 +1,8 @@
 substitutions:
   # App Version
   app_version: "26.6.0"
-
+  
+text_sensor:
   # GitHub Project URL
   - platform: template
     name: GitHub
