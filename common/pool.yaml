@@ -2,8 +2,8 @@ substitutions:
   import: "false"
 
   # I2C pins - Adafruit HUZZAH32 – ESP32 Feather Board
-  sdaPin: "42" # yellow/TX
-  sclPin: "41" # green/RX
+  sdaPin: "42"
+  sclPin: "41"
 
   addPMP_white: "109"  # EZO PMP-L
 
