@@ -44,6 +44,7 @@ spi:
 display:
   - platform: st7789v
     id: tft_display
+    model: "Adafruit S2 TFT FEATHER 240X135"
     cs_pin: GPIO7
     dc_pin: GPIO39
     reset_pin: GPIO40
