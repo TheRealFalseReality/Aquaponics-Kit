@@ -1,15 +1,13 @@
 color:
   - id: color_white
     hex: "FFFFFF"
-  - id: color_red
-    hex: "E53935"   # A nice visible red
-  - id: color_blue
-    hex: "1E88E5"   # A nice visible blue
-  - id: color_gray
-    hex: "757575"   # Gray
-  - id: color_yellow
-    hex: "FDD835"   # Yellow
-
+  - id: color_ph
+    hex: "EB5531"
+  - id: color_orp
+    hex: "00BEF7"
+  - id: color_rtd
+    hex: "BDFBC6"
+    
 # Download a font to use for the screen
 font:
   - file: "gfonts://Roboto"
@@ -44,7 +42,11 @@ spi:
 display:
   - platform: st7789v
     id: tft_display
-    model: "Adafruit S2 TFT FEATHER 240X135"
+    model: "Custom"
+    height: 135
+    width: 240
+    offset_height: 40
+    offset_width: 52
     cs_pin: GPIO7
     dc_pin: GPIO39
     reset_pin: GPIO40
