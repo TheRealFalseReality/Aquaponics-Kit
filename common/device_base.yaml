@@ -21,7 +21,7 @@ substitutions:
   sorting_group_config_weight: '99'
 
 esp32:
-  board: esp32dev
+  board: esp32-s2-saola-1
   framework:
     type: esp-idf
 
