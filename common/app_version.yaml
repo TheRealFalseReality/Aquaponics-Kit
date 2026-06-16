@@ -14,5 +14,5 @@ text_sensor:
 
 light:
   - id: !remove internal_led
-
+text_sensor:
   - id: !remove hardware_variant_sensor
