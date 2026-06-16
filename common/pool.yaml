@@ -13,3 +13,6 @@ packages:
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/pool-kit.yaml
   import_full_config: "${import}"
+
+esp32:
+  board: esp32-s2-saola-1
