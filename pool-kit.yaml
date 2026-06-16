@@ -19,3 +19,6 @@ packages:
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
   device_base: !include common/device_base.yaml
   pool: !include common/pool.yaml
+
+light:
+  - id: !remove internal_led
