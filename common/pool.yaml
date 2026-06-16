@@ -5,6 +5,8 @@ substitutions:
   sdaPin: "42" # yellow/TX
   sclPin: "41" # green/RX
 
+  addPMP_white: "109"  # EZO PMP-L
+
 packages:
   aquapi_app_version: !include app_version.yaml
 
