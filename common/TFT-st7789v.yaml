@@ -50,6 +50,7 @@ display:
     reset_pin: GPIO40
     rotation: 270 # Landscape mode (matches the C++ code rotation: 3)
     update_interval: 1s
+    power_supply: tft_power
     lambda: |-
       // --- Section 1: pH (Red Background) ---
       // Draw rectangle: x, y, width, height, color
