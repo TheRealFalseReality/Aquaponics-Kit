@@ -16,14 +16,11 @@ font:
     id: font_large
     size: 20
 
-# Turn on the TFT Backlight and TFT Power
+# Turn on the TFT Backlight
 output:
   - platform: gpio
     pin: GPIO45
     id: tft_backlight
-  - platform: gpio
-    pin: GPIO21
-    id: tft_power
 
 light:
   - platform: binary
@@ -31,12 +28,12 @@ light:
     name: "Screen Backlight"
     restore_mode: ALWAYS_ON
 
-# Turn on TFT Power automatically on boot
-esphome:
-  on_boot:
-    priority: 800
-    then:
-      - output.turn_on: tft_power
+Formal power supply for the TFT
+power_supply:
+  - id: tft_power
+    pin: GPIO21
+    enable_time: 20ms
+    keep_on_time: 10ms
 
 # Set up the SPI bus for the display
 spi:
