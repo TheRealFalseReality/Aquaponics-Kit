@@ -1,0 +1,99 @@
+color:
+  - id: color_white
+    hex: "FFFFFF"
+  - id: color_red
+    hex: "E53935"   # A nice visible red
+  - id: color_blue
+    hex: "1E88E5"   # A nice visible blue
+  - id: color_gray
+    hex: "757575"   # Gray
+  - id: color_yellow
+    hex: "FDD835"   # Yellow
+
+# Download a font to use for the screen
+font:
+  - file: "gfonts://Roboto"
+    id: font_large
+    size: 20
+
+# Turn on the TFT Backlight and TFT Power
+output:
+  - platform: gpio
+    pin: GPIO45
+    id: tft_backlight
+  - platform: gpio
+    pin: GPIO21
+    id: tft_power
+
+light:
+  - platform: binary
+    output: tft_backlight
+    name: "Screen Backlight"
+    restore_mode: ALWAYS_ON
+
+# Turn on TFT Power automatically on boot
+esphome:
+  on_boot:
+    priority: 800
+    then:
+      - output.turn_on: tft_power
+
+# Set up the SPI bus for the display
+spi:
+  clk_pin: GPIO36
+  mosi_pin: GPIO35
+
+# Set up the ST7789 Display
+display:
+  - platform: st7789v
+    id: tft_display
+    cs_pin: GPIO7
+    dc_pin: GPIO39
+    reset_pin: GPIO40
+    rotation: 270 # Landscape mode (matches the C++ code rotation: 3)
+    update_interval: 1s
+    lambda: |-
+      // --- Section 1: pH (Red Background) ---
+      // Draw rectangle: x, y, width, height, color
+      it.filled_rectangle(0, 0, 240, 34, id(color_red));
+      
+      // Print Label (Left Aligned)
+      it.print(10, 17, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "pH");
+      
+      // Print Value (Right Aligned)
+      if (id(ph_ezo).has_state()) {
+        it.printf(230, 17, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.2f", id(ph_ezo).state);
+      } else {
+        it.print(230, 17, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+      }
+
+      // --- Section 2: ORP (Blue Background) ---
+      it.filled_rectangle(0, 34, 240, 34, id(color_blue));
+      it.print(10, 51, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "ORP");
+      
+      if (id(orp_ezo).has_state()) {
+        it.printf(230, 51, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.0f mV", id(orp_ezo).state);
+      } else {
+        it.print(230, 51, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+      }
+
+      // --- Section 3: RTD/Temp (Gray Background) ---
+      it.filled_rectangle(0, 68, 240, 34, id(color_gray));
+      it.print(10, 85, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "RTD");
+      
+      if (id(rtd_ezo).has_state()) {
+        it.printf(230, 85, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.1f °C", id(rtd_ezo).state);
+      } else {
+        it.print(230, 85, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+      }
+
+      // --- Section 4: DO (Yellow Background) ---
+      it.filled_rectangle(0, 102, 240, 33, id(color_yellow));
+      it.print(10, 118, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "DO");
+      
+      // Note: Make sure your DO sensor ID in your YAML matches 'do_ezo'
+      if (id(do_ezo).has_state()) {
+        it.printf(230, 118, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.2f mg/L", id(do_ezo).state);
+      } else {
+        it.print(230, 118, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+      }
