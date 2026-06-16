@@ -16,6 +16,7 @@ jobs:
       #### Modify below here to match your project ####
       files: |
         aquaponics-kit.yaml
+        pool-kit.yaml
       esphome-version: latest
       # combined-name: Atlas Scientific Wifi Aquaponics Kit
 

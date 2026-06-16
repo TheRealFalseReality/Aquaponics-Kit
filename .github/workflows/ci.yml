@@ -23,6 +23,7 @@ jobs:
         #### Modify below here to match your project ####
         file:
           - aquaponics-kit
+          - pool-kit
 
         esphome-version:
           - stable

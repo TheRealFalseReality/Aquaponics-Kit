@@ -4,26 +4,9 @@ substitutions:
   # I2C pins - Adafruit HUZZAH32 – ESP32 Feather Board
   sdaPin: "23" # yellow/TX
 
+packages:
+  aquapi_app_version: !include app_version.yaml
+
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/aquaponics-kit.yaml
   import_full_config: "${import}"
-
-text_sensor: 
-  # AquaPi Version
-  - platform: template
-    name: "Version"
-    id: aquaponics_version
-    icon: mdi:update
-    lambda: |-
-      return {"${app_version}"};
-    entity_category: "diagnostic"
-
-  # GitHub Project URL
-  - platform: template
-    name: GitHub
-    id: github
-    icon: mdi:github
-    lambda: |-
-      return {"https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
-"};
-    entity_category: "diagnostic"

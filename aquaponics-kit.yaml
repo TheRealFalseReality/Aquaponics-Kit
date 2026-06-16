@@ -1,14 +1,17 @@
 substitutions:
-  app_version: "26.6.0"
   # names
   name: "aquaponics-kit"
   friendly_name: "Aquaponics Kit"
   comment: "Aquaponics Kit for ESP32"
   project_name: "therealfalsereality.aquaponics-kit"
+  firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit.manifest.json"
+  firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin"
+  firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin.md5"
 
 packages:
   aquaponics: !include common/aquaponics.yaml
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
+  TheRealFalseReality.aquapi_app_version: github://TheRealFalseReality/aquapi/common/aquapi_app_version.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
   TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
