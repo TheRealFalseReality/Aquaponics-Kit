@@ -15,3 +15,9 @@ text_sensor:
 binary_sensor:
   -  id: !extend ezo_rtd_detected
      disabled_by_default: false
+  -  id: !extend ezo_ec_detected
+     disabled_by_default: true
+  -  id: !extend ezo_pmp_red_detected
+     disabled_by_default: true
+  -  id: !extend ezo_pmp_green_detected
+     disabled_by_default: true
