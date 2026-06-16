@@ -14,20 +14,20 @@ This repository is mostly a thin ESPHome configuration layer on top of shared Aq
 
 Recommended reading order:
 
-1. **Start with the board definition** in `/common/espboard.yaml`.  
+1. **Start with the board definition** in `/common/espboard.yaml`.
    Use this as the hardware source of truth during development: this repo is currently targeting **ESP32-S2** (`esp32-s2-saola-1`), even if some product references elsewhere mention S3.
 
-2. **Learn the TFT setup** in `/common/TFT-st7789v.yaml`.  
+2. **Learn the TFT setup** in `/common/TFT-st7789v.yaml`.
    This is the display configuration for the ST7789V TFT used by the kit, including SPI pins, backlight power, display control pins, and the render lambda for on-screen sensor values.
 
 3. **Read the two firmware entrypoints**:
    - `/aquaponics-kit.yaml`
-   - `/pool-kit.yaml`  
+   - `/pool-kit.yaml`
    These are the main configs. Compare their included packages and enabled sensors to understand how the two variants differ.
 
 4. **Read the kit-specific overlays**:
    - `/common/aquaponics.yaml`
-   - `/common/pool.yaml`  
+   - `/common/pool.yaml`
    These provide substitutions and board-specific wiring details such as I2C pin assignments and dashboard import behavior.
 
 5. **Treat AquaPi as the shared implementation layer**.  
