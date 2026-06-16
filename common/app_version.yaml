@@ -11,8 +11,7 @@ text_sensor:
     lambda: |-
       return {"https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific"};
     entity_category: "diagnostic"
+  - id: !remove hardware_variant_sensor
 
 light:
   - id: !remove internal_led
-text_sensor:
-  - id: !remove hardware_variant_sensor
