@@ -33,9 +33,6 @@ packages:
   esp32-saola-1: !include common/espboard.yaml
   pool: !include common/pool.yaml
 
-light:
-  - id: !remove internal_led
-
 binary_sensor:
   -  id: !extend ezo_rtd_detected
      disabled_by_default: false
