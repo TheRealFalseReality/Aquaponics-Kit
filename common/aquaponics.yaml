@@ -3,24 +3,9 @@ substitutions:
 
   # I2C pins - Adafruit HUZZAH32 – ESP32 Feather Board
   sdaPin: "23" # yellow/TX
-  # EZO Circuit Addresses
-  # pH circuit, who's address is 99
-  addPH: "99"
-  # EC circuit, who's address is 100
-  addEC: "100"
-  # DO circuit, who's address is 97
-  addDO: "97"
-  # RTD circuit, who's address is 102
-  addRTD: "102"
-  # PMP circuit, who's address is 103
-  addPMP: "103"
-  # HUM circuit, who's address is 111
-  addHUM: "111"
-  # CO2 circuit, who's address is 105
-  addCO2: "105"
 
 dashboard_import:
-  package_import_url: github://TheRealFalseReality/Aquaponics-Kit/aquaponics-kit.yaml
+  package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/aquaponics-kit.yaml
   import_full_config: "${import}"
 
 text_sensor: 
@@ -39,5 +24,6 @@ text_sensor:
     id: github
     icon: mdi:github
     lambda: |-
-      return {"github.com/TheRealFalseReality/Aquaponics-Kit"};
+      return {"https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+"};
     entity_category: "diagnostic"
