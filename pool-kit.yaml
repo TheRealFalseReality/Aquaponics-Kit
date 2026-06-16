@@ -31,8 +31,3 @@ packages:
 binary_sensor:
   -  id: !extend ezo_rtd_detected
      disabled_by_default: false
-  -  id: !remove ezo_ec_detected
-  -  id: !remove ezo_pmp_red_detected
-  -  id: !remove ezo_pmp_green_detected
-  -  id: !remove ezo_hum_detected
-  -  id: !remove ezo_co2_detected
