@@ -9,7 +9,6 @@ substitutions:
   firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/pool-kit-esp32.ota.bin.md5"
 
 packages:
-  pool: !include common/pool.yaml
   device_base: !include common/device_base.yaml
 #   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
@@ -19,3 +18,4 @@ packages:
   TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
   TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
+  pool: !include common/pool.yaml
