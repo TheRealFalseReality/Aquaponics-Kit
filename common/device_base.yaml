@@ -182,17 +182,6 @@ text_sensor:
       web_server:
         sorting_group_id: sorting_group_diagnostic
 
-  # Hardware Variant
-  - platform: template
-    name: "Hardware Variant"
-    id: hardware_variant_sensor
-    icon: mdi:developer-board
-    lambda: |-
-      return {"${hardware_variant}"};
-    entity_category: "diagnostic"
-    web_server:
-      sorting_group_id: sorting_group_diagnostic
-
 button:
   # Soft Restart
   - platform: restart
