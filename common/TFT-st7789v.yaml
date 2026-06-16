@@ -7,6 +7,8 @@ color:
     hex: "00BEF7"
   - id: color_rtd
     hex: "BDFBC6"
+  - id: color_do
+    hex: "FDD835"   # Nice visible yellow1
     
 # Download a font to use for the screen
 font:
@@ -42,59 +44,52 @@ spi:
 display:
   - platform: st7789v
     id: tft_display
-    model: "Custom"
-    height: 135
-    width: 240
-    offset_height: 40
-    offset_width: 52
+    model: "Custom"           
+    height: 135               
+    width: 240                
+    offset_height: 40         
+    offset_width: 52          
     cs_pin: GPIO7
     dc_pin: GPIO39
     reset_pin: GPIO40
-    rotation: 270 # Landscape mode (matches the C++ code rotation: 3)
+    rotation: 270 
     update_interval: 1s
     power_supply: tft_power
     lambda: |-
-      // --- Section 1: pH (Red Background) ---
-      // Draw rectangle: x, y, width, height, color
-      it.filled_rectangle(0, 0, 240, 34, id(color_red));
-      
-      // Print Label (Left Aligned)
-      it.print(10, 17, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "pH");
-      
-      // Print Value (Right Aligned)
+      // --- Section 1: pH ---
+      it.filled_rectangle(0, 0, 240, 33, id(color_ph));
+      it.print(4, 22, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "pH");
       if (id(ph_ezo).has_state()) {
-        it.printf(230, 17, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.2f", id(ph_ezo).state);
+        it.printf(70, 22, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
       } else {
-        it.print(230, 17, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+        it.print(70, 22, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "no data");
       }
 
-      // --- Section 2: ORP (Blue Background) ---
-      it.filled_rectangle(0, 34, 240, 34, id(color_blue));
-      it.print(10, 51, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "ORP");
-      
+      // --- Section 2: ORP ---
+      it.filled_rectangle(0, 33, 240, 33, id(color_orp));
+      it.print(4, 57, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "ORP");
       if (id(orp_ezo).has_state()) {
-        it.printf(230, 51, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.0f mV", id(orp_ezo).state);
+        it.printf(70, 57, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "%.0f mV", id(orp_ezo).state);
       } else {
-        it.print(230, 51, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+        it.print(70, 57, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "no data");
       }
 
-      // --- Section 3: RTD/Temp (Gray Background) ---
-      it.filled_rectangle(0, 68, 240, 34, id(color_gray));
-      it.print(10, 85, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "RTD");
-      
+      // --- Section 3: RTD ---
+      it.filled_rectangle(0, 66, 240, 33, id(color_rtd));
+      it.print(4, 90, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "RTD");
       if (id(rtd_ezo).has_state()) {
-        it.printf(230, 85, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.1f °C", id(rtd_ezo).state);
+        it.printf(70, 90, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
       } else {
-        it.print(230, 85, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+        it.print(70, 90, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "no data");
       }
-
-      // --- Section 4: DO (Yellow Background) ---
-      it.filled_rectangle(0, 102, 240, 33, id(color_yellow));
-      it.print(10, 118, id(font_large), id(color_white), TextAlign::CENTER_LEFT, "DO");
       
-      // Note: Make sure your DO sensor ID in your YAML matches 'do_ezo'
+      // --- Section 4: DO ---
+      // Fills the remaining 36 pixels at the bottom of the 135px screen
+      it.filled_rectangle(0, 99, 240, 36, id(color_do));
+      it.print(4, 124, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "DO");
+      
       if (id(do_ezo).has_state()) {
-        it.printf(230, 118, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "%.2f mg/L", id(do_ezo).state);
+        it.printf(70, 124, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "%.2f mg/L", id(do_ezo).state);
       } else {
-        it.print(230, 118, id(font_large), id(color_white), TextAlign::CENTER_RIGHT, "no data");
+        it.print(70, 124, id(font_large), id(color_white), TextAlign::BASELINE_LEFT, "no data");
       }
