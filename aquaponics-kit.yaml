@@ -10,7 +10,6 @@ substitutions:
 
 packages:
   aquaponics: !include common/aquaponics.yaml
-  device_base: !include common/device_base.yaml
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
   TheRealFalseReality.aquapi_app_version: github://TheRealFalseReality/aquapi/common/aquapi_app_version.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
