@@ -10,7 +10,12 @@ substitutions:
 
 packages:
 #   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
-  device_base: !include common/device_base.yaml
+  TheRealFalseReality.aquapi: 
+    url: https://github.com/TheRealFalseReality/aquapi
+    ref: main
+    file: common/device_base.yaml
+    refresh: 1s
+#   device_base: !include common/device_base.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
   # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
