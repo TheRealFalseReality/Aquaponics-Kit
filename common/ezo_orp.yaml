@@ -1,0 +1,206 @@
+---
+substitutions:
+  # ORP circuit, who's address is 98
+  addORP: "98"
+  update_orp: "60s"
+
+  sorting_group_orp: '33'
+
+globals:
+  - id: orp_cal_done
+    type: bool
+    restore_value: true
+    initial_value: 'false'
+
+api:
+  actions:
+    - action: orp_change_address
+      variables:
+        address: int
+      then:
+        - lambda: |-
+            id(orp_ezo).send_custom("I2C,{{address}}");
+    - action: orp_read_continuous
+      then:
+        - repeat:
+            count: 60
+            then:
+              - button.press: read_orp
+              - delay: 1s
+    - action: orp_calibrate_225
+      then:
+        - lambda: |-
+            id(orp_ezo).send_custom("Cal,225");
+            id(orp_cal_done) = true;
+    - action: orp_calibrate
+      variables:
+        millivolts: int
+      then:
+        - lambda: |-
+            id(orp_ezo).send_custom(("Cal," + to_string(millivolts)).c_str());
+            id(orp_cal_done) = true;
+    - action: orp_custom_command
+      variables:
+        command: string
+      then:
+        - lambda: |-
+            id(orp_ezo).send_custom(command.c_str());
+
+
+esphome:
+  on_boot:
+    - priority: 800
+      then:
+        - button.press: send_selected_orp
+    - priority: 200
+      then:
+        - lambda: |-
+            if (!id(orp_cal_done)) {
+              ESP_LOGW("ezo_orp", "ORP sensor may not be calibrated! Run calibration via 'ORP - Command Select'.");
+            }
+
+sensor:
+  # EZO Circuits (SCL/RX, SDA/TX)
+  # EZO Circuit - ORP
+  - platform: ezo
+    icon: mdi:react
+    name: "ORP"
+    id: orp_ezo
+    address: ${addORP}
+    unit_of_measurement: mV
+    accuracy_decimals: 1
+    update_interval: "${update_orp}"
+    state_class: "measurement"
+    device_class: voltage
+    on_custom:
+      then:
+        - lambda:
+            id(result_orp).publish_state(x);
+    on_calibration:
+      then:
+        - lambda:
+            id(result_orp).publish_state(x);
+    on_device_information:
+      then:
+        - lambda:
+            id(result_orp).publish_state(x);
+    on_slope:
+      then:
+        - lambda:
+            id(result_orp).publish_state(x);
+    on_t:
+      then:
+        - lambda:
+            id(result_orp).publish_state(x);
+
+text_sensor:
+  # Selected Command Result - ORP
+  - platform: template
+    name: ORP - Command Result
+    icon: mdi:data-matrix
+    id: result_orp
+    # disabled_by_default: true
+
+binary_sensor:
+  - platform: template
+    name: "ORP - Calibrated"
+    id: orp_cal_sensor
+    icon: mdi:check-circle
+    entity_category: "diagnostic"
+    lambda: |-
+      return id(orp_cal_done);
+
+button:
+  # Read ORP Probe
+  - platform: template
+    name: ORP - Read
+    id: read_orp
+    icon: mdi:read
+    entity_category: "Config"
+    # disabled_by_default: true
+    on_press:
+      then:
+        - lambda: |-
+            esphome::i2c::ErrorCode err = id(bus_a)->write(${addORP}, nullptr, 0);
+            if (err == esphome::i2c::ERROR_OK) {
+              id(orp_ezo).send_custom("R");
+            }
+            else {
+              ESP_LOGW("custom_orp_read", "No ORP sensor detected at address: ${addORP}!!");
+            }
+
+  # Send Selected EZO Command - ORP
+  - platform: template
+    name: ORP - Command Send Selected
+    id: send_selected_orp
+    icon: mdi:apple-keyboard-command
+    entity_category: "Config"
+    # disabled_by_default: true
+    on_press:
+      then:
+        - lambda: |-
+            if (id(select_command_orp).current_option() == "Read") {
+              id(orp_ezo).send_custom("R");
+              ESP_LOGD("ezo_orp", "ORP read command sent. Check 'ORP - Command Result' for response.");
+            }
+            // Get Device Firmware Version
+            else if (id(select_command_orp).current_option() == "Information") {
+              id(orp_ezo).get_device_information();
+              ESP_LOGD("ezo_orp", "ORP information command sent. Check 'ORP - Command Result' for response.");
+            }
+            else if (id(select_command_orp).current_option() == "Status") {
+              id(orp_ezo).send_custom("Status");
+              ESP_LOGD("ezo_orp", "ORP status command sent. Check 'ORP - Command Result' for response.");
+            }
+            else if (id(select_command_orp).current_option() == "Check Calibration") {
+              id(orp_ezo).get_calibration();
+              ESP_LOGD("ezo_orp", "ORP calibration check sent. Check 'ORP - Command Result' for response.");
+            }
+            else if (id(select_command_orp).current_option() == "Calibrate @ 225 mV (WILL RESET CALIBRATION)") {
+              id(orp_ezo).send_custom("Cal,225");
+              id(orp_cal_done) = true;
+              ESP_LOGI("ezo_orp", "ORP calibration sent: 225 mV");
+            }
+            else if (id(select_command_orp).current_option() == "Calibrate CLEAR (WILL RESET CALIBRATION)") {
+              id(orp_ezo).clear_calibration();
+              id(orp_cal_done) = false;
+              ESP_LOGI("ezo_orp", "ORP calibration CLEARED. All calibration points reset.");
+            }
+            else if (id(select_command_orp).current_option() == "Factory Reset") {
+              id(orp_ezo).send_custom("Factory");
+              id(orp_cal_done) = false;
+              ESP_LOGW("ezo_orp", "ORP Factory Reset sent! Device has been reset to factory defaults.");
+            }
+
+  - platform: template
+    name: "ORP - Reset Calibration Flags"
+    id: orp_cal_reset_flags
+    icon: mdi:flag-remove
+    entity_category: "Config"
+    disabled_by_default: true
+    on_press:
+      - lambda: |-
+          id(orp_cal_done) = false;
+          ESP_LOGI("ezo_orp", "ORP calibration flags manually reset.");
+
+select:
+  - platform: template
+    name: ORP - Command Select
+    id: select_command_orp
+    optimistic: true
+    icon: mdi:apple-keyboard-command
+    # disabled_by_default: true
+    entity_category: "Config"
+    options:
+      - "Read"
+      - "Information"
+      - "Status"
+      - "Check Calibration"
+      - "Calibrate @ 225 mV (WILL RESET CALIBRATION)"
+      - "Calibrate CLEAR (WILL RESET CALIBRATION)"
+      - "Factory Reset"
+    initial_option: "Check Calibration"
+    set_action:
+      - logger.log:
+          format: "Chosen option: %s"
+          args: ["x.c_str()"]

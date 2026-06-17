@@ -7,6 +7,8 @@ substitutions:
   firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit.manifest.json"
   firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin"
   firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin.md5"
+  update_pmp_green: "never"
+  update_pmp_red: "never"
 
 packages:
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
