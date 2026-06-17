@@ -7,7 +7,7 @@ substitutions:
   addPMP_white: "109"  # EZO PMP-L
 
 packages:
-  aquapi_app_version: !include app_version.yaml
+  app_version: !include app_version.yaml
 
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/aquaponics-kit.yaml

@@ -12,7 +12,7 @@ substitutions:
 
 packages:
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
-  TheRealFalseReality.aquapi_app_version: github://TheRealFalseReality/aquapi/common/aquapi_app_version.yaml
+  TheRealFalseReality.app_version: github://TheRealFalseReality/aquapi/common/aquapi_app_version.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
   TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
