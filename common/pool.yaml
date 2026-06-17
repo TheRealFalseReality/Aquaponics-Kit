@@ -7,9 +7,6 @@ substitutions:
 
   addPMP_whit1e: "109"  # EZO PMP-L
 
-packages:
-  app_version: !include app_version.yaml
-
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/pool-kit.yaml
   import_full_config: "${import}"

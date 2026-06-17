@@ -1,0 +1,67 @@
+power_supply:
+  - id: neopixel_power
+    pin: GPIO34
+
+light:
+  - platform: esp32_rmt_led_strip
+    id: onboard_neopixel
+    pin: GPIO33
+    num_leds: 1
+    rgb_order: GRB
+    name: "Feather NeoPixel"
+    power_supply: neopixel_power
+    chipset: ws2812
+    effects:
+      - pulse:
+          name: "Pulse Error"
+          transition_length: 500ms
+          update_interval: 500ms
+
+esphome:
+  on_boot:
+      priority: -100
+      then:
+        # - output.turn_on: tft_power
+        - light.turn_on:
+            id: onboard_neopixel
+            brightness: 40%
+            red: 0.9
+            green: 0.3
+            blue: 1.0
+
+api:
+  on_client_connected:
+      - delay: 2s
+      - light.turn_on:
+          id: onboard_neopixel
+          brightness: 40%
+          red: 0.0
+          green: 1.0   # Green for HA Connected and ready!
+          blue: 0.0
+          effect: "none"
+  on_client_disconnected:
+    - light.turn_on:
+        id: onboard_neopixel
+        brightness: 40%
+        red: 1.0     # Flashing red if HA drops offline
+        green: 0.0
+        blue: 0.0
+        effect: "Pulse Error"
+
+wifi:
+  on_connect:
+      - light.turn_on:
+          id: onboard_neopixel
+          brightness: 40%
+          red: 0.0
+          green: 0.0
+          blue: 1.0    # Blue for Wi-Fi Connected
+          effect: "none"
+  on_disconnect:
+    - light.turn_on:
+        id: onboard_neopixel
+        brightness: 40%
+        red: 1.0     # Red for Wi-Fi Disconnected
+        green: 0.0
+        blue: 0.0
+        effect: "Pulse Error" # Flashing red to indicate error
