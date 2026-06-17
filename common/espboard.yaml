@@ -1,4 +1,4 @@
 esp32:
-  board: adafruit_feather_esp32s2_tft
+  board: esp32-s2-saola-1
   framework:
-    type: arduino
+    type: esp-idf
