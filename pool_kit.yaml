@@ -28,5 +28,5 @@ packages:
   # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
   # TheRealFalseReality.i2c_detection: github://TheRealFalseReality/aquapi/common/i2c_detection.yaml
   esp32-saola-1: !include common/espboard.yaml
-  TFT-st7789v: !include common/TFT-st7789v.yaml
+  TFT_st7789v: !include common/TFT_st7789v.yaml
   pool: !include common/pool.yaml
