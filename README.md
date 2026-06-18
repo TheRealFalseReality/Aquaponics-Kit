@@ -28,7 +28,7 @@ PMP - Controlled Doser Pump
 
 ## USB
 Install via USB here:  
-https://therealfalsereality.github.io/Aquaponics-Kit/
+[https://therealfalsereality.github.io/Aquaponics-Kit/](https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/)
 
 ## ESPHome Web (.bin)
 Download latest .bin from [Releases](https://github.com/TheRealFalseReality/Aquaponics-Kit/releases) and install via [ESPHome Web](https://web.esphome.io/)  
