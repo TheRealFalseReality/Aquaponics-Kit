@@ -1,12 +1,12 @@
 substitutions:
   # names
-  name: "aquaponics-kit"
-  friendly_name: "Aquaponics Kit"
-  comment: "Aquaponics Kit for ESP32"
-  project_name: "therealfalsereality.aquaponics-kit"
-  firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit.manifest.json"
-  firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin"
-  firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin.md5"
+  name: "hydroponics-kit"
+  friendly_name: "Hydroponics Kit"
+  comment: "Hydroponics Kit for ESP32"
+  project_name: "therealfalsereality.hydroponics-kit"
+  firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics-kit.manifest.json"
+  firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics-kit-esp32.ota.bin"
+  firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics-kit-esp32.ota.bin.md5"
   update_pmp_green: "never"
   update_pmp_red: "never"
 
@@ -25,6 +25,6 @@ packages:
   # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
   # TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   #  TheRealFalseReality.i2c_detection: github://TheRealFalseReality/aquapi/common/i2c_detection.yaml
-  esp32-saola-1: !include common/espboard.yaml
+  esp32_saola_1: !include common/espboard.yaml
   TFT_st7789v: !include common/TFT_st7789v.yaml
-  aquaponics: !include common/aquaponics.yaml
+  hydroponics: !include common/hydroponics.yaml
