@@ -19,22 +19,6 @@ CO2 - CO2 (in air)
 PMP - Controlled Doser Pump  
 ```
 
-Individual packages that are included by default:
-```
-packages:
-  aquaponics: !include common/aquaponics.yaml
-  TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
-  TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
-  TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
-  TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
-  TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
-  TheRealFalseReality.c02: github://TheRealFalseReality/aquapi/common/ezo_co2.yaml
-  TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
-  # TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
-  # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
-  # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
-  # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
-```
 
 ![Wi-Fi-aquaponics-kit-01](https://github.com/TheRealFalseReality/Aquaponics-Kit/assets/106857076/defb7d02-b80c-4f63-b4a5-78aa1691ac1f)
 
@@ -60,3 +44,36 @@ dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics-Kit/aquaponics-kit.yaml@main
 ```
 using source code, you can also customize anything and add your own sensors! Make it your own!
+
+To ensure you and other users of the `pool-kit` understand the system status at a glance, I have documented the NeoPixel color codes below.
+
+---
+
+### Status LED Documentation: Pool Kit
+
+The NeoPixel LED provides immediate visual feedback regarding the health and connectivity of your pool controller.
+
+| Color | State | Meaning |
+| --- | --- | --- |
+| **Purple** | Solid | **System Booting:** The controller is currently powering up and initializing core components. |
+| **Blue** | Solid | **Wi-Fi Connected:** The device has successfully joined the local network. |
+| **Green** | Solid | **System Ready:** The device is connected to Home Assistant and is fully operational. |
+| **Pulsing Red** | Flashing | **Error / Disconnected:** The device has lost its connection to the network or Home Assistant. |
+
+---
+
+### Understanding the Startup Sequence
+
+When you power on the device, it will follow this progression:
+
+1. **Purple:** The initial power-on phase. You will see this for a few seconds while the internal sensors and the SPI bus initialize.
+2. **Blue:** Once the device successfully negotiates with your Wi-Fi router, the LED will shift to blue.
+3. **Green:** Once the handshake with Home Assistant is confirmed, the LED turns green, indicating that your sensor data is now actively streaming to your dashboard.
+
+### Troubleshooting
+
+If the LED enters a **Pulsing Red** state:
+
+* **Check Wi-Fi:** Ensure your router is online and the `wifi_ssid_iot` credentials are correct.
+* **Check Home Assistant:** If the Wi-Fi is active (Blue) but it switches to Pulsing Red, the device is failing to reach the Home Assistant API. Ensure your `api_key` in the YAML matches the integration key in your Home Assistant ESPHome settings.
+* **Power Supply:** If the LED does not light up at all at boot, ensure your power supply provides stable 5V, as the NeoPixel requires consistent power to drive its color logic.
