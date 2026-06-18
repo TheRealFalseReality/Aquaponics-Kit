@@ -23,6 +23,7 @@ packages:
   # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
   # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
   # TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
+  #  TheRealFalseReality.i2c_detection: github://TheRealFalseReality/aquapi/common/i2c_detection.yaml
   esp32-saola-1: !include common/espboard.yaml
   TFT-st7789v: !include common/TFT-st7789v.yaml
   aquaponics: !include common/aquaponics.yaml

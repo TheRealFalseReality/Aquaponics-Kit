@@ -9,7 +9,3 @@ packages:
 
 light:
   - id: !remove internal_led
-
-sensor:
-  -  id: !extend rtd_ezo
-     disabled_by_default: false
