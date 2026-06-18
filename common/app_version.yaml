@@ -1,6 +1,6 @@
 substitutions:
   # App Version
-  app_version: "26.6.0"
+  app_version: "26.6.1"
 
 text_sensor:
   # GitHub Project URL
@@ -16,3 +16,7 @@ text_sensor:
 
 light:
   - id: !remove internal_led
+
+sensor:
+  -  id: !extend rtd_ezo
+     disabled_by_default: false
