@@ -1,10 +1,22 @@
-# Atas Scientific Wi-Fi Aquaponics & Pool Kit for ESPHome
+# Atas Scientific Wi-Fi Aquaponics, Hydroponics & Pool Kit for ESPHome
+
+<img src="https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/blob/151f5840982f217ea921c57f484c87cafd857170/Atlas%20EZO%20docs/wi-fi-aquaponics-kit-01-2.webp" width="50%">
+
 
 Code for [**Atas Scientific Wi-Fi Aquaponics Kit**](https://atlas-scientific.com/product/wi-fi-aquaponics-kit/) to be compatable with [**ESPHome**](https://esphome.io/) and [**HomeAssistant**](https://www.home-assistant.io/) using [**Adafruit ESP32-S2 TFT Feather**](https://learn.adafruit.com/adafruit-esp32-s2-tft-feather/overview).  
 This code will communitcate with all the sensors and send the data to HomeAssistant. The ESP device should be automatically discovered in your HomeAssitant instance once ready. Another .bin file as well as source code for calibration is located on the Releases page for this project.    
 
+<img src="https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/blob/151f5840982f217ea921c57f484c87cafd857170/Atlas%20EZO%20docs/Wi-Fi-PK-option-02.webp" width="50%">
+
+
 Code for [**Atas Scientific Wi-Fi Pool Kit**](https://atlas-scientific.com/kits/wi-fi-pool-kit/) to be compatable with [**ESPHome**](https://esphome.io/) and [**HomeAssistant**](https://www.home-assistant.io/) using [**Adafruit ESP32-S2 TFT Feather**](https://learn.adafruit.com/adafruit-esp32-s2-tft-feather/overview).  
 This code will communitcate with all the sensors and send the data to HomeAssistant. The ESP device should be automatically discovered in your HomeAssitant instance once ready. Another .bin file as well as source code for calibration is located on the Releases page for this project.    
+
+<img src="https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/blob/151f5840982f217ea921c57f484c87cafd857170/Atlas%20EZO%20docs/Wi-Fi-HK-01-1.webp" width="50%">
+
+
+Code for [**Atas Scientific Wi-Fi Hydroponics Kit**](https://atlas-scientific.com/kits/wi-fi-hydroponics-kit/) to be compatable with [**ESPHome**](https://esphome.io/) and [**HomeAssistant**](https://www.home-assistant.io/) using [**Adafruit ESP32-S2 TFT Feather**](https://learn.adafruit.com/adafruit-esp32-s2-tft-feather/overview).  
+This code will communitcate with all the sensors and send the data to HomeAssistant. The ESP device should be automatically discovered in your HomeAssitant instance once ready. Another .bin file as well as source code for calibration is located on the Releases page for this project.   
 
 **My main project is [AquaPi](https://github.com/TheRealFalseReality/aquapi). These two systems literally use the same hardware, other than the main board, and thus, instead of writing code for each, I actually pull the specfic config from that repo. All instructions for my AquaPi project should apply to this project. Please, read the [AquaPi Wiki](https://github.com/TheRealFalseReality/aquapi/wiki) for calibraion instructions and further, more detailed documentation.**
 
@@ -18,10 +30,6 @@ HUM - Humidity
 CO2 - CO2 (in air)  
 PMP - Controlled Doser Pump  
 ```
-
-
-![Wi-Fi-aquaponics-kit-01](https://github.com/TheRealFalseReality/Aquaponics-Kit/assets/106857076/defb7d02-b80c-4f63-b4a5-78aa1691ac1f)
-![Wi-Fi-pool-kit-01](https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/blob/main/Atlas%20EZO%20docs/Wi-Fi-PK-option-02.webp?raw=true)
 
 
 # Installation
