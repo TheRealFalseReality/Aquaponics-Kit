@@ -21,7 +21,7 @@ PMP - Controlled Doser Pump
 
 
 ![Wi-Fi-aquaponics-kit-01](https://github.com/TheRealFalseReality/Aquaponics-Kit/assets/106857076/defb7d02-b80c-4f63-b4a5-78aa1691ac1f)
-![Wi-Fi-pool-kit-01](<img width="1000" height="1000" alt="Wi-Fi-PK-option-02" src="https://github.com/user-attachments/assets/ee020a3a-6408-45cc-8b59-45a682d58c3a" />)
+![Wi-Fi-pool-kit-01](https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/blob/main/Atlas%20EZO%20docs/Wi-Fi-PK-option-02.webp?raw=true)
 
 
 # Installation
