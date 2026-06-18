@@ -18,12 +18,7 @@ packages:
   TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
   TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
-#   TheRealFalseReality.water_quality: github://TheRealFalseReality/aquapi/common/water_quality.yaml
-  TheRealFalseReality.water_quality: 
-    url: https://github.com/TheRealFalseReality/aquapi
-    ref: main
-    file: common/water_quality.yaml
-    refresh: 1s
+  TheRealFalseReality.water_quality: github://TheRealFalseReality/aquapi/common/water_quality.yaml
   # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
   # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
   # TheRealFalseReality.i2c_detection: github://TheRealFalseReality/aquapi/common/i2c_detection.yaml
