@@ -124,7 +124,7 @@ display:
           it.line(10, 72, 14, 72, id(color_black));               // Top cap
           it.line(12, 85, 12, 76, id(color_black));               // Internal mercury line
           // Print Text
-          it.print(26, 90, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "RTD");
+          it.print(26, 90, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "Temp.");
           if (id(rtd_ezo).has_state()) {
             it.printf(85, 90, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
           } else {
