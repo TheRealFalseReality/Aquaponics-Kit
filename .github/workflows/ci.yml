@@ -22,8 +22,8 @@ jobs:
       matrix:
         #### Modify below here to match your project ####
         file:
-          - aquaponics-kit
-          - pool-kit
+          - aquaponics_kit
+          - pool_kit
 
         esphome-version:
           - stable
