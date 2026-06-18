@@ -13,10 +13,3 @@ text_sensor:
     entity_category: "diagnostic"
     
   - id: !remove hardware_variant_sensor
-
-light:
-  - id: !remove internal_led
-
-sensor:
-  -  id: !extend rtd_ezo
-     disabled_by_default: false
