@@ -14,19 +14,19 @@ dashboard_import:
   import_full_config: "${import}"
 
 packages:
-  TheRealFalseReality.device_base: !include /common/device_base.yaml
-  TheRealFalseReality.ph: !include /common/ezo_ph.yaml
-  TheRealFalseReality.ec: !include /common/ezo_ec.yaml
-  # TheRealFalseReality.hum: !include /common/ezo_hum.yaml
-  TheRealFalseReality.rtd: !include /common/ezo_rtd.yaml
-  # TheRealFalseReality.c02: !include /common/ezo_co2.yaml
-  TheRealFalseReality.pmp: !include /common/ezo_pmp.yaml
-  TheRealFalseReality.water_quality: !include /common/water_quality.yaml
-  # TheRealFalseReality.debug: !include /common/debug.yaml
-  # TheRealFalseReality.commands: !include /common/ezo_commands.yaml
-  TheRealFalseReality.do: !include /common/ezo_do.yaml
-  TheRealFalseReality.orp: !include /common/ezo_orp.yaml
-  #  TheRealFalseReality.i2c_detection: !include /common/i2c_detection.yaml
+  TheRealFalseReality.device_base: !include common/device_base.yaml
+  TheRealFalseReality.ph: !include common/ezo_ph.yaml
+  TheRealFalseReality.ec: !include common/ezo_ec.yaml
+  # TheRealFalseReality.hum: !include common/ezo_hum.yaml
+  TheRealFalseReality.rtd: !include common/ezo_rtd.yaml
+  # TheRealFalseReality.c02: !include common/ezo_co2.yaml
+  TheRealFalseReality.pmp: !include common/ezo_pmp.yaml
+  TheRealFalseReality.water_quality: !include common/water_quality.yaml
+  # TheRealFalseReality.debug: !include common/debug.yaml
+  # TheRealFalseReality.commands: !include common/ezo_commands.yaml
+  TheRealFalseReality.do: !include common/ezo_do.yaml
+  TheRealFalseReality.orp: !include common/ezo_orp.yaml
+  #  TheRealFalseReality.i2c_detection: !include common/i2c_detection.yaml
   esp32_saola_1: !include common/espboard.yaml
   aquapi_kits: !include common/aquapi_kits.yaml
   TFT_st7789v: !include common/TFT_st7789v.yaml
