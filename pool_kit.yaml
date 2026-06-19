@@ -16,14 +16,13 @@ dashboard_import:
 
 packages:
   TheRealFalseReality.device_base: !include common/device_base.yaml
-  TheRealFalseReality.app_version: !include common/aquapi_app_version.yaml
   TheRealFalseReality.ph: !include common/ezo_ph.yaml
   TheRealFalseReality.rtd: !include common/ezo_rtd.yaml
   TheRealFalseReality.do: !include common/ezo_do.yaml
   TheRealFalseReality.orp: !include common/ezo_orp.yaml
   TheRealFalseReality.pmp: !include common/ezo_pmp.yaml
   TheRealFalseReality.water_quality: !include common/water_quality.yaml
-  # TheRealFalseReality.ec: !include common/ezo_ec.yaml
+  TheRealFalseReality.ec: !include common/ezo_ec.yaml
   # TheRealFalseReality.debug: !include common/debug.yaml
   # TheRealFalseReality.commands: !include common/ezo_commands.yaml
   # TheRealFalseReality.i2c_detection: !include common/i2c_detection.yaml
