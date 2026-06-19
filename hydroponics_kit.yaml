@@ -9,6 +9,11 @@ substitutions:
   firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit-esp32.ota.bin.md5"
   update_pmp_green: "never"
   update_pmp_red: "never"
+  import: "false"
+  
+dashboard_import:
+  package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/hydroponics_kit.yaml
+  import_full_config: "${import}"
 
 packages:
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml

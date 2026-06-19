@@ -1,0 +1,23 @@
+---
+substitutions:
+  # App Version
+  app_version: "26.6.5"
+  # github URL
+  github_url: "https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific"
+
+  # names
+  name: "aquapi"
+  friendly_name: "AquaPi"
+  comment: "AquaPi Kits for ESPHome"
+  project_name: "therealfalsereality.aquapi_kits"
+  sorting_group_name: "AquaPi"
+  import: "false"
+
+dashboard_import:
+  package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/pool_kit.yaml@main
+  import_full_config: "${import}"
+
+text_sensor:
+  # AquaPi Version
+  - id: !extend app_version
+    name: "AquaPi Kits Version"

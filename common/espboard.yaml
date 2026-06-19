@@ -3,6 +3,10 @@ esp32:
   framework:
     type: esp-idf
 
+# I2C pins - Adafruit ESP32-S2 TFT Feather Board
+  sdaPin: "42"
+  sclPin: "41"
+
 packages:
   neo_pixel: !include neo_led.yaml
   app_version: !include app_version.yaml
