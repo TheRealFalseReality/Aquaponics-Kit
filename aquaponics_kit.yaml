@@ -19,7 +19,7 @@ packages:
   TheRealFalseReality.ec: !include common/ezo_ec.yaml
   TheRealFalseReality.hum: !include common/ezo_hum.yaml
   TheRealFalseReality.rtd: !include common/ezo_rtd.yaml
-  TheRealFalseReality.c02: !include common/ezo_co2.yaml
+  TheRealFalseReality.co2: !include common/ezo_co2.yaml
   TheRealFalseReality.pmp: !include common/ezo_pmp.yaml
   TheRealFalseReality.water_quality: !include common/water_quality.yaml
   # TheRealFalseReality.debug: !include common/debug.yaml
@@ -90,4 +90,3 @@ packages:
       } else {
         it.print(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
       }
-      
