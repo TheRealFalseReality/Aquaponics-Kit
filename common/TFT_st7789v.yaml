@@ -41,8 +41,6 @@ color:
     hex: "B77900"
   - id: color_rtd
     hex: "607D8B"
-  - id: color_do_2
-    hex: "FDD835"
   - id: color_co2
     hex: "FF9800"
   - id: color_hum
