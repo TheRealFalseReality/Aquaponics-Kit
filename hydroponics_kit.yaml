@@ -2,15 +2,13 @@ substitutions:
   # names
   name: "hydroponics-kit"
   friendly_name: "Hydroponics Kit"
-  comment: "Hydroponics Kit for ESP32"
+  comment: "Hydroponics Kit for ESPHome"
   project_name: "therealfalsereality.hydroponics_kit"
   firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit.manifest.json"
   firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit-esp32.ota.bin"
   firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit-esp32.ota.bin.md5"
-  update_pmp_green: "never"
-  update_pmp_red: "never"
   import: "false"
-  
+
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/hydroponics_kit.yaml
   import_full_config: "${import}"
