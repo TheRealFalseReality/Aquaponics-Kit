@@ -33,6 +33,11 @@ Install Pool Kit:
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>  
 
+Install Hydroponics Kit:
+<esp-web-install-button manifest="firmware/hydroponics_kit.manifest.json"></esp-web-install-button>
+
+<script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>  
+
 
 
 ## Connect to WiFi via WiFi (After Install)

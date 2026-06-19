@@ -24,6 +24,7 @@ jobs:
         file:
           - aquaponics_kit
           - pool_kit
+          - hydroponics_kit
 
         esphome-version:
           - stable
