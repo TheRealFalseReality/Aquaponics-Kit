@@ -43,8 +43,6 @@ color:
     hex: "607D8B"
   - id: color_do_2
     hex: "FDD835"
-  - id: color_ec
-    hex: "9C27B0"
   - id: color_co2
     hex: "FF9800"
   - id: color_hum
