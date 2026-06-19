@@ -9,7 +9,6 @@ esp32:
 
 packages:
   neo_pixel: !include neo_led.yaml
-  app_version: !include app_version.yaml
 
 light:
   - id: !remove internal_led

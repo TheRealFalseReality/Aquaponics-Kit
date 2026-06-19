@@ -28,4 +28,5 @@ packages:
   # TheRealFalseReality.commands: !include common/ezo_commands.yaml
   # TheRealFalseReality.i2c_detection: !include common/i2c_detection.yaml
   esp32_saola_1: !include common/espboard.yaml
+  app_version: !include common/app_version.yaml
   TFT_st7789v: !include common/TFT_st7789v.yaml
