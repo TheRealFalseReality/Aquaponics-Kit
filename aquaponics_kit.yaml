@@ -31,62 +31,69 @@ packages:
   aquapi_kits: !include common/aquapi_kits.yaml
   TFT_st7789v: !include common/TFT_st7789v.yaml
 
-  # display:
-  # - id: !exntend tft_displayupdate_interval: 1s
-  #   lambda: |-
-  #     // --- Section 1: pH (Salmon / White Text) ---
-  #     it.filled_rectangle(0, 0, 240, 22, id(color_ph));
-  #     it.print(10, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "pH");
-  #     if (id(ph_ezo).has_state()) {
-  #       it.printf(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
-  #     } else {
-  #       it.print(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-  #     }
+font:
+  - file: "gfonts://Roboto"
+    id: my_font
+    size: 20
+    bpp: 2
+    glyphs: ' !"#$%&''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~±µ'
 
-  #     // --- Section 2: DO (Yellow / Black Text) ---
-  #     it.filled_rectangle(0, 22, 240, 22, id(color_do));
-  #     it.print(10, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "DO");
-  #     if (id(sensor_do_percent).has_state()) {
-  #       it.printf(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f%%", id(sensor_do_percent).state);
-  #     } else {
-  #       it.print(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "...");
-  #     }
+  display:
+  - id: !exntend tft_displayupdate_interval: 1s
+    lambda: |-
+      // --- Section 1: pH (Salmon / White Text) ---
+      it.filled_rectangle(0, 0, 240, 22, id(color_ph));
+      it.print(10, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "pH");
+      if (id(ph_ezo).has_state()) {
+        it.printf(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
+      } else {
+        it.print(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
 
-  #     // --- Section 3: RTD Temp (Gray / White Text) ---
-  #     it.filled_rectangle(0, 44, 240, 22, id(color_rtd));
-  #     it.print(10, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Temp");
-  #     if (id(rtd_ezo).has_state()) {
-  #       it.printf(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
-  #     } else {
-  #       it.print(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-  #     }
+      // --- Section 2: DO (Yellow / Black Text) ---
+      it.filled_rectangle(0, 22, 240, 22, id(color_do));
+      it.print(10, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "DO");
+      if (id(sensor_do_percent).has_state()) {
+        it.printf(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f%%", id(sensor_do_percent).state);
+      } else {
+        it.print(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "...");
+      }
 
-  #     // --- Section 4: EC (Purple / White Text) ---
-  #     it.filled_rectangle(0, 66, 240, 22, id(color_ec));
-  #     it.print(10, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "EC");
-  #     if (id(ec_ezo).has_state()) {
-  #       it.printf(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f µS", id(ec_ezo).state);
-  #     } else {
-  #       it.print(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-  #     }
+      // --- Section 3: RTD Temp (Gray / White Text) ---
+      it.filled_rectangle(0, 44, 240, 22, id(color_rtd));
+      it.print(10, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Temp");
+      if (id(rtd_ezo).has_state()) {
+        it.printf(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
+      } else {
+        it.print(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
 
-  #     // --- Section 5: CO2 (Orange / White Text) ---
-  #     it.filled_rectangle(0, 88, 240, 22, id(color_co2));
-  #     it.print(10, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "CO2");
-  #     if (id(co2_ezo).has_state()) {
-  #       // Formatted to %.0f to keep it a clean integer (e.g. 1500 ppm)
-  #       it.printf(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f ppm", id(co2_ezo).state);
-  #     } else {
-  #       it.print(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-  #     }
+      // --- Section 4: EC (Purple / White Text) ---
+      it.filled_rectangle(0, 66, 240, 22, id(color_ec));
+      it.print(10, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "EC");
+      if (id(ec_ezo).has_state()) {
+        it.printf(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f µS", id(ec_ezo).state);
+      } else {
+        it.print(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
 
-  #     // --- Section 6: Humidity (Dark Cyan / White Text) ---
-  #     // Fills the final 25 pixels remaining at the bottom of the screen
-  #     it.filled_rectangle(0, 110, 240, 25, id(color_hum));
-  #     it.print(10, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Hum");
-  #     if (id(hum_ezo).has_state()) {
-  #       // Formatted to %.0f%% to output integers like 45% or 100%
-  #       it.printf(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f%%", id(hum_ezo).state);
-  #     } else {
-  #       it.print(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-  #     }
+      // --- Section 5: CO2 (Orange / White Text) ---
+      it.filled_rectangle(0, 88, 240, 22, id(color_co2));
+      it.print(10, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "CO2");
+      if (id(co2_ezo).has_state()) {
+        // Formatted to %.0f to keep it a clean integer (e.g. 1500 ppm)
+        it.printf(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f ppm", id(co2_ezo).state);
+      } else {
+        it.print(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
+
+      // --- Section 6: Humidity (Dark Cyan / White Text) ---
+      // Fills the final 25 pixels remaining at the bottom of the screen
+      it.filled_rectangle(0, 110, 240, 25, id(color_hum));
+      it.print(10, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Hum");
+      if (id(hum_ezo).has_state()) {
+        // Formatted to %.0f%% to output integers like 45% or 100%
+        it.printf(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f%%", id(hum_ezo).state);
+      } else {
+        it.print(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
