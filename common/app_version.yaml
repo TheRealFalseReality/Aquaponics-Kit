@@ -3,9 +3,6 @@ substitutions:
   app_version: "26.6.1"
 
 text_sensor:
-  - id: !extend app_version
-    name: "Firmware Version"
-
   # GitHub Project URL
   - id: !extend github
     lambda: |-
