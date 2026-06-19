@@ -15,14 +15,54 @@ dashboard_import:
 
 
 packages:
-  TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
-  TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
-  TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
-  TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
-  TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
-  TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
-  TheRealFalseReality.water_quality: github://TheRealFalseReality/aquapi/common/water_quality.yaml
-  TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
+#   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
+  TheRealFalseReality.device_base: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/device_base.yaml
+    refresh: 1s
+#   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
+  TheRealFalseReality.ph: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/ezo_ph.yaml
+    refresh: 1s
+#   TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
+  TheRealFalseReality.rtd: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/ezo_rtd.yaml
+    refresh: 1s
+#   TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
+  TheRealFalseReality.do: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/ezo_do.yaml
+    refresh: 1s
+#   TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
+  TheRealFalseReality.orp: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/ezo_orp.yaml
+    refresh: 1s
+#   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
+  TheRealFalseReality.pmp: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/ezo_pmp.yaml
+    refresh: 1s
+#   TheRealFalseReality.water_quality: github://TheRealFalseReality/aquapi/common/water_quality.yaml
+  TheRealFalseReality.water_quality: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/water_quality.yaml
+    refresh: 1s
+#   TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
+  TheRealFalseReality.ec: 
+    url: https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific
+    ref: RC1
+    file: common/ezo_ec.yaml
+    refresh: 1s
   # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
   # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
   # TheRealFalseReality.i2c_detection: github://TheRealFalseReality/aquapi/common/i2c_detection.yaml
