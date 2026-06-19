@@ -39,7 +39,7 @@ color:
     hex: "1B5E20"
   - id: color_do
     hex: "B77900"
-- id: color_rtd
+  - id: color_rtd
     hex: "607D8B"
   - id: color_do
     hex: "FDD835"
