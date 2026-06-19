@@ -25,8 +25,8 @@ packages:
   # TheRealFalseReality.debug: !include /common/debug.yaml
   # TheRealFalseReality.commands: !include /common/ezo_commands.yaml
   TheRealFalseReality.do: !include /common/ezo_do.yaml
-  TheRealFalseReality.orp: !include /common/ezo_orp.yaml
+  # TheRealFalseReality.orp: !include /common/ezo_orp.yaml
   #  TheRealFalseReality.i2c_detection: !include /common/i2c_detection.yaml
   esp32_saola_1: !include common/espboard.yaml
   aquapi_kits: !include common/aquapi_kits.yaml
-  TFT_st7789v: !include common/TFT_st7789v.yaml
+  # TFT_st7789v: !include common/TFT_st7789v.yaml
