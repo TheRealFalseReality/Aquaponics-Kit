@@ -71,7 +71,12 @@ display:
 
       // --- Section 2: EC (Hydroponics Layout) ---
       it.filled_rectangle(0, 33, 240, 33, id(color_ec));
-      it.print(12, 57, id(my_font), id(color_white), TextAlign::BASELINE_CENTER, "±"); 
+      
+      // Vector Salt Crystals
+      it.filled_rectangle(10, 116, 6, 6, id(color_white)); // Large crystal
+      it.filled_rectangle(18, 122, 4, 4, id(color_white)); // Small bottom crystal
+      it.filled_rectangle(15, 110, 3, 3, id(color_white)); // Small top crystal
+          
       it.print(26, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "EC");
       if (id(ec_ezo).has_state()) {
         it.printf(85, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f µS", id(ec_ezo).state);
@@ -154,4 +159,3 @@ display:
         // Draw "None" (Fills the bottom block with black to prevent artifacts)
         it.filled_rectangle(0, 99, 240, 36, id(color_black));
       }
-      
