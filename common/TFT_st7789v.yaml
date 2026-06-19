@@ -35,10 +35,20 @@ color:
     hex: "EB5531"
   - id: color_orp
     hex: "0D47A1"
-  - id: color_rtd
+  - id: color_ec
     hex: "1B5E20"
   - id: color_do
     hex: "B77900"
+- id: color_rtd
+    hex: "607D8B"
+  - id: color_do
+    hex: "FDD835"
+  - id: color_ec
+    hex: "9C27B0"
+  - id: color_co2
+    hex: "FF9800"
+  - id: color_hum
+    hex: "00838F"
     
 font:
   - file: "gfonts://Roboto"
