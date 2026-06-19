@@ -3,13 +3,12 @@ substitutions:
   app_version: "26.6.1"
 
 text_sensor:
+  - id: !extend app_version
+    name: "Firmware Version"
+
   # GitHub Project URL
-  - platform: template
-    name: GitHub
-    id: github
-    icon: mdi:github
+  - id: !extend github
     lambda: |-
       return {"https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific"};
-    entity_category: "diagnostic"
     
   - id: !remove hardware_variant_sensor
