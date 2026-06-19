@@ -36,7 +36,7 @@ font:
     size: 20
 
 display:
-- id: !exntend tft_display
+- id: !extend tft_display
   lambda: |-
     // --- Section 1: pH (Salmon / White Text) ---
     it.filled_rectangle(0, 0, 240, 22, id(color_ph));
