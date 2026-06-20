@@ -14,7 +14,12 @@ dashboard_import:
   import_full_config: "${import}"
 
 packages:
-  TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
+  # TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
+  TheRealFalseReality.device_base: 
+    url: https://github.com/TheRealFalseReality/aquapi
+    ref: main
+    file: common/device_base.yaml
+    refresh: 1s
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
