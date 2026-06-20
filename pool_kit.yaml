@@ -19,7 +19,6 @@ packages:
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
   TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
-  TheRealFalseReality.do: 
   TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
   TheRealFalseReality.water_quality: github://TheRealFalseReality/aquapi/common/water_quality.yaml
