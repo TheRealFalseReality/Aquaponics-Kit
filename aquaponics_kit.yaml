@@ -39,63 +39,91 @@ packages:
 font:
   - id: !extend my_font
     size: 20
-
 display:
-- id: !extend tft_display
-  lambda: |-
-    // --- Section 1: pH (Salmon / White Text) ---
-    it.filled_rectangle(0, 0, 240, 22, id(color_ph));
-    it.print(10, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "pH");
-    if (id(ph_ezo).has_state()) {
-      it.printf(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
-    } else {
-      it.print(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-    }
+  - id: !extend tft_display
+    lambda: |-
+      // --- Section 1: pH (Salmon / White Text) ---
+      it.filled_rectangle(0, 0, 240, 22, id(color_ph));
+      it.print(10, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "pH");
+      if (id(ph_ezo).has_state()) {
+        it.printf(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
+      } else {
+        it.print(110, 18, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
+      // Status Icon
+      if (id(ideal_ph).state) {
+        it.line(215, 11, 219, 16, id(color_white)); it.line(215, 12, 219, 17, id(color_white));
+        it.line(219, 16, 226, 6, id(color_white));  it.line(219, 17, 226, 7, id(color_white));
+      } else {
+        it.line(215, 6, 225, 16, id(color_white));  it.line(215, 7, 225, 17, id(color_white));
+        it.line(215, 16, 225, 6, id(color_white));  it.line(215, 17, 225, 7, id(color_white));
+      }
 
-    // --- Section 2: DO (Yellow / Black Text) ---
-    it.filled_rectangle(0, 22, 240, 22, id(color_do));
-    it.print(10, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "DO");
-    if (id(sensor_do_percent).has_state()) {
-      it.printf(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f%%", id(sensor_do_percent).state);
-    } else {
-      it.print(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "...");
-    }
+      // --- Section 2: DO (Yellow / Black Text) ---
+      it.filled_rectangle(0, 22, 240, 22, id(color_do));
+      it.print(10, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "DO");
+      if (id(sensor_do_percent).has_state()) {
+        it.printf(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f%%", id(sensor_do_percent).state);
+      } else {
+        it.print(110, 40, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "...");
+      }
+      // Status Icon
+      if (id(ideal_do).state) {
+        it.line(215, 33, 219, 38, id(color_black)); it.line(215, 34, 219, 39, id(color_black));
+        it.line(219, 38, 226, 28, id(color_black)); it.line(219, 39, 226, 29, id(color_black));
+      } else {
+        it.line(215, 28, 225, 38, id(color_black)); it.line(215, 29, 225, 39, id(color_black));
+        it.line(215, 38, 225, 28, id(color_black)); it.line(215, 39, 225, 29, id(color_black));
+      }
 
-    // --- Section 3: RTD Temp (Gray / White Text) ---
-    it.filled_rectangle(0, 44, 240, 22, id(color_rtd));
-    it.print(10, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Temp");
-    if (id(rtd_ezo).has_state()) {
-      it.printf(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
-    } else {
-      it.print(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-    }
+      // --- Section 3: RTD Temp (Gray / White Text) ---
+      it.filled_rectangle(0, 44, 240, 22, id(color_rtd));
+      it.print(10, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Temp");
+      if (id(rtd_ezo).has_state()) {
+        it.printf(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
+      } else {
+        it.print(110, 62, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
+      // Status Icon
+      if (id(ideal_temp_rtd).state) {
+        it.line(215, 55, 219, 60, id(color_white)); it.line(215, 56, 219, 61, id(color_white));
+        it.line(219, 60, 226, 50, id(color_white)); it.line(219, 61, 226, 51, id(color_white));
+      } else {
+        it.line(215, 50, 225, 60, id(color_white)); it.line(215, 51, 225, 61, id(color_white));
+        it.line(215, 60, 225, 50, id(color_white)); it.line(215, 61, 225, 51, id(color_white));
+      }
 
-    // --- Section 4: EC (Purple / White Text) ---
-    it.filled_rectangle(0, 66, 240, 22, id(color_ec));
-    it.print(10, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "EC");
-    if (id(ec_ezo).has_state()) {
-      it.printf(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f µS", id(ec_ezo).state);
-    } else {
-      it.print(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-    }
+      // --- Section 4: EC (Purple / White Text) ---
+      it.filled_rectangle(0, 66, 240, 22, id(color_ec));
+      it.print(10, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "EC");
+      if (id(ec_ezo).has_state()) {
+        it.printf(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f µS", id(ec_ezo).state);
+      } else {
+        it.print(110, 84, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
+      // Status Icon
+      if (id(ideal_ec).state) {
+        it.line(215, 77, 219, 82, id(color_white)); it.line(215, 78, 219, 83, id(color_white));
+        it.line(219, 82, 226, 72, id(color_white)); it.line(219, 83, 226, 73, id(color_white));
+      } else {
+        it.line(215, 72, 225, 82, id(color_white)); it.line(215, 73, 225, 83, id(color_white));
+        it.line(215, 82, 225, 72, id(color_white)); it.line(215, 83, 225, 73, id(color_white));
+      }
 
-    // --- Section 5: CO2 (Orange / White Text) ---
-    it.filled_rectangle(0, 88, 240, 22, id(color_co2));
-    it.print(10, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "CO2");
-    if (id(co2_ezo).has_state()) {
-      // Formatted to %.0f to keep it a clean integer (e.g. 1500 ppm)
-      it.printf(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f ppm", id(co2_ezo).state);
-    } else {
-      it.print(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-    }
+      // --- Section 5: CO2 (Orange / White Text) ---
+      it.filled_rectangle(0, 88, 240, 22, id(color_co2));
+      it.print(10, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "CO2");
+      if (id(co2_ezo).has_state()) {
+        it.printf(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f ppm", id(co2_ezo).state);
+      } else {
+        it.print(110, 106, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
 
-    // --- Section 6: Humidity (Dark Cyan / White Text) ---
-    // Fills the final 25 pixels remaining at the bottom of the screen
-    it.filled_rectangle(0, 110, 240, 25, id(color_hum));
-    it.print(10, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Hum");
-    if (id(hum_ezo).has_state()) {
-      // Formatted to %.0f%% to output integers like 45% or 100%
-      it.printf(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f%%", id(hum_ezo).state);
-    } else {
-      it.print(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
-    }
+      // --- Section 6: Humidity (Dark Cyan / White Text) ---
+      it.filled_rectangle(0, 110, 240, 25, id(color_hum));
+      it.print(10, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Hum");
+      if (id(hum_ezo).has_state()) {
+        it.printf(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f%%", id(hum_ezo).state);
+      } else {
+        it.print(110, 129, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+      }
