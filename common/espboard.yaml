@@ -1,11 +1,15 @@
+substitutions:
+# I2C pins - Adafruit ESP32-S2 TFT Feather Board
+  sdaPin: "42"
+  sclPin: "41"
+
 esp32:
   board: esp32-s2-saola-1
   framework:
     type: esp-idf
-
+    
 packages:
   neo_pixel: !include neo_led.yaml
-  app_version: !include app_version.yaml
 
 light:
   - id: !remove internal_led

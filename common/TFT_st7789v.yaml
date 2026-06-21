@@ -35,16 +35,23 @@ color:
     hex: "EB5531"
   - id: color_orp
     hex: "0D47A1"
-  - id: color_rtd
+  - id: color_ec
     hex: "1B5E20"
   - id: color_do
     hex: "B77900"
+  - id: color_rtd
+    hex: "607D8B"
+  - id: color_co2
+    hex: "FF9800"
+  - id: color_hum
+    hex: "00838F"
     
 font:
   - file: "gfonts://Roboto"
     id: my_font
     size: 24
     bpp: 2
+    glyphs: ' !"#$%&''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~±µ'
 
 display:
   - platform: mipi_spi
@@ -58,113 +65,5 @@ display:
       height: 240
       offset_width: 53
       offset_height: 40
-    # show_test_card: true
+    show_test_card: true
     rotation: 90
-    lambda: |-
-          // --- Section 1: pH (White Text & Vector Flask Icon) ---
-          it.filled_rectangle(0, 0, 240, 33, id(color_ph));
-          // Draw Flask Icon
-          it.circle(12, 22, 5, id(color_white));                  // Flask base
-          it.filled_rectangle(10, 10, 5, 8, id(color_ph));        // Clear inside neck
-          it.line(10, 17, 10, 10, id(color_white));               // Left neck
-          it.line(14, 17, 14, 10, id(color_white));               // Right neck
-          it.line(8, 10, 16, 10, id(color_white));                // Lip
-          // Print Text
-          it.print(26, 22, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "pH");
-          if (id(ph_ezo).has_state()) {
-            it.printf(85, 22, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
-          } else {
-            it.print(85, 22, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "no data");
-          }
-          // Thicker Far Right Status Indicator (White)
-          if (id(ideal_ph).state) {
-            it.line(215, 18, 219, 22, id(color_white));           // Checkmark Line 1
-            it.line(215, 19, 219, 23, id(color_white));           // Checkmark Line 2 (Bold offset)
-            it.line(219, 22, 227, 12, id(color_white));
-            it.line(219, 23, 227, 13, id(color_white));
-          } else {
-            it.line(215, 12, 225, 22, id(color_white));           // 'X' Line 1
-            it.line(215, 13, 225, 23, id(color_white));           // 'X' Line 1 (Bold offset)
-            it.line(215, 22, 225, 12, id(color_white));           // 'X' Line 2
-            it.line(215, 23, 225, 13, id(color_white));           // 'X' Line 2 (Bold offset)
-          }
-
-          // --- Section 2: ORP (White Text & Vector Lightning Icon) ---
-          it.filled_rectangle(0, 33, 240, 33, id(color_orp));
-          // Draw Lightning Bolt
-          it.line(15, 38, 9, 50, id(color_white));
-          it.line(9, 50, 14, 50, id(color_white));
-          it.line(14, 50, 10, 60, id(color_white));
-          // Print Text
-          it.print(26, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "ORP");
-          if (id(orp_ezo).has_state()) {
-            it.printf(85, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f mV", id(orp_ezo).state);
-          } else {
-            it.print(85, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "no data");
-          }
-          // Thicker Far Right Status Indicator (White)
-          if (id(ideal_orp).state) {
-            it.line(215, 53, 219, 57, id(color_white));
-            it.line(215, 54, 219, 58, id(color_white));
-            it.line(219, 57, 227, 47, id(color_white));
-            it.line(219, 58, 227, 48, id(color_white));
-          } else {
-            it.line(215, 47, 225, 57, id(color_white));
-            it.line(215, 48, 225, 58, id(color_white));
-            it.line(215, 57, 225, 47, id(color_white));
-            it.line(215, 58, 225, 48, id(color_white));
-          }
-
-          // --- Section 3: RTD (Black Text & Vector Thermometer Icon) ---
-          it.filled_rectangle(0, 66, 240, 33, id(color_rtd));
-          // Draw Thermometer
-          it.filled_circle(12, 88, 4, id(color_black));           // Bottom bulb
-          it.line(10, 85, 10, 72, id(color_black));               // Left wall
-          it.line(14, 85, 14, 72, id(color_black));               // Right wall
-          it.line(10, 72, 14, 72, id(color_black));               // Top cap
-          it.line(12, 85, 12, 76, id(color_black));               // Internal mercury line
-          // Print Text
-          it.print(26, 90, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "Temp.");
-          if (id(rtd_ezo).has_state()) {
-            it.printf(85, 90, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
-          } else {
-            it.print(85, 90, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "no data");
-          }
-          // Thicker Far Right Status Indicator (Black)
-          if (id(ideal_temp_rtd).state) {
-            it.line(215, 86, 219, 90, id(color_black));
-            it.line(215, 87, 219, 91, id(color_black));
-            it.line(219, 90, 227, 80, id(color_black));
-            it.line(219, 91, 227, 81, id(color_black));
-          } else {
-            it.line(215, 80, 225, 90, id(color_black));
-            it.line(215, 81, 225, 91, id(color_black));
-            it.line(215, 90, 225, 80, id(color_black));
-            it.line(215, 91, 225, 81, id(color_black));
-          }
-          
-          // --- Section 4: DO (Black Text & Vector Gas Bubble Icons) ---
-          it.filled_rectangle(0, 99, 240, 36, id(color_do));
-          // Draw Oxygen Bubbles
-          it.circle(10, 122, 5, id(color_black));                 // Primary bubble
-          it.circle(18, 113, 3, id(color_black));                 // Secondary rising bubble
-          // Print Text
-          it.print(26, 125, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "DO");
-          if (id(sensor_do_percent).has_state()) {
-            it.printf(85, 125, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f%%", id(sensor_do_percent).state);
-          } else {
-            it.print(85, 125, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "no data");
-          }
-          // Thicker Far Right Status Indicator (Black)
-          if (id(ideal_do).state) {
-            it.line(215, 121, 219, 125, id(color_black));
-            it.line(215, 122, 219, 126, id(color_black));
-            it.line(219, 125, 227, 115, id(color_black));
-            it.line(219, 126, 227, 116, id(color_black));
-          } else {
-            it.line(215, 115, 225, 125, id(color_black));
-            it.line(215, 116, 225, 126, id(color_black));
-            it.line(215, 125, 225, 115, id(color_black));
-            it.line(215, 126, 225, 116, id(color_black));
-          }
-          

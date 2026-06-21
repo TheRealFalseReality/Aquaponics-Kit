@@ -24,17 +24,17 @@ PMP - Controlled Doser Pump
 You can use the button below to install the pre-built firmware directly to your device via USB from the browser. Then, while still connected to USB, connect to WiFi, then add to HomeAssisatnt.
 
 Install Aquaponics Kit:
-<esp-web-install-button manifest="firmware/aquaponics_kit.manifest.json"></esp-web-install-button>
+<esp-web-install-button manifest="firmware/aquaponics-kit.manifest.json"></esp-web-install-button>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>  
 
 Install Pool Kit:
-<esp-web-install-button manifest="firmware/pool_kit.manifest.json"></esp-web-install-button>
+<esp-web-install-button manifest="firmware/pool-kit.manifest.json"></esp-web-install-button>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>  
 
 Install Hydroponics Kit:
-<esp-web-install-button manifest="firmware/hydroponics_kit.manifest.json"></esp-web-install-button>
+<esp-web-install-button manifest="firmware/hydroponics-kit.manifest.json"></esp-web-install-button>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9.1.0/dist/web/install-button.js?module"></script>  
 

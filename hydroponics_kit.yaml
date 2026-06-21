@@ -2,29 +2,159 @@ substitutions:
   # names
   name: "hydroponics-kit"
   friendly_name: "Hydroponics Kit"
-  comment: "Hydroponics Kit for ESP32"
+  comment: "Hydroponics Kit for ESPHome"
   project_name: "therealfalsereality.hydroponics_kit"
-  firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit.manifest.json"
-  firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit-esp32.ota.bin"
-  firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics_kit-esp32.ota.bin.md5"
-  update_pmp_green: "never"
-  update_pmp_red: "never"
+  firmware_manifest_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics-kit.manifest.json"
+  firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics-kit-esp32.ota.bin"
+  firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/hydroponics-kit-esp32.ota.bin.md5"
+  import: "false"
+
+dashboard_import:
+  package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/hydroponics_kit.yaml
+  import_full_config: "${import}"
 
 packages:
   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
-  TheRealFalseReality.app_version: github://TheRealFalseReality/aquapi/common/aquapi_app_version.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.ec: github://TheRealFalseReality/aquapi/common/ezo_ec.yaml
-  # TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
-  TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
-  # TheRealFalseReality.c02: github://TheRealFalseReality/aquapi/common/ezo_co2.yaml
   TheRealFalseReality.pmp: github://TheRealFalseReality/aquapi/common/ezo_pmp.yaml
+  TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
+  TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
+  TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   TheRealFalseReality.water_quality: github://TheRealFalseReality/aquapi/common/water_quality.yaml
+  # TheRealFalseReality.hum: github://TheRealFalseReality/aquapi/common/ezo_hum.yaml
+  # TheRealFalseReality.c02: github://TheRealFalseReality/aquapi/common/ezo_co2.yaml
   # TheRealFalseReality.debug: github://TheRealFalseReality/aquapi/common/debug.yaml
   # TheRealFalseReality.commands: github://TheRealFalseReality/aquapi/common/ezo_commands.yaml
-  # TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
-  TheRealFalseReality.orp: github://TheRealFalseReality/aquapi/common/ezo_orp.yaml
   #  TheRealFalseReality.i2c_detection: github://TheRealFalseReality/aquapi/common/i2c_detection.yaml
   esp32_saola_1: !include common/espboard.yaml
+  aquapi_kits: !include common/aquapi_kits.yaml
   TFT_st7789v: !include common/TFT_st7789v.yaml
-  hydroponics: !include common/hydroponics.yaml
+
+select:
+  - platform: template
+    name: "Display Section 4 Sensor"
+    id: display_section_4_select
+    icon: mdi:monitor-dashboard
+    options:
+      - "None"
+      - "Dissolved Oxygen"
+      - "ORP"
+    initial_option: "None"
+    optimistic: true
+    restore_value: true
+    entity_category: "Config"
+
+display:
+  - id: !extend tft_display
+    lambda: |-
+      // --- Section 1: pH ---
+      it.filled_rectangle(0, 0, 240, 33, id(color_ph));
+      it.circle(12, 22, 5, id(color_white));                  
+      it.filled_rectangle(10, 10, 5, 8, id(color_ph));        
+      it.line(10, 17, 10, 10, id(color_white));               
+      it.line(14, 17, 14, 10, id(color_white));               
+      it.line(8, 10, 16, 10, id(color_white));                
+      it.print(26, 22, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "pH");
+      if (id(ph_ezo).has_state()) {
+        it.printf(85, 22, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.2f", id(ph_ezo).state);
+      } else {
+        it.print(85, 22, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "no data");
+      }
+      if (id(ideal_ph).state) {
+        it.line(215, 18, 219, 22, id(color_white)); it.line(215, 19, 219, 23, id(color_white));
+        it.line(219, 22, 227, 12, id(color_white)); it.line(219, 23, 227, 13, id(color_white));
+      } else {
+        it.line(215, 12, 225, 22, id(color_white)); it.line(215, 13, 225, 23, id(color_white));
+        it.line(215, 22, 225, 12, id(color_white)); it.line(215, 23, 225, 13, id(color_white));
+      }
+
+      // --- Section 2: EC (Hydroponics Layout) ---
+      it.filled_rectangle(0, 33, 240, 33, id(color_ec));
+      // Vector Salt Crystals
+      it.filled_rectangle(10, 116, 6, 6, id(color_white)); // Large crystal
+      it.filled_rectangle(18, 122, 4, 4, id(color_white)); // Small bottom crystal
+      it.filled_rectangle(15, 110, 3, 3, id(color_white)); // Small top crystal
+          
+      it.print(26, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "EC");
+      if (id(ec_ezo).has_state()) {
+        it.printf(85, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f µS", id(ec_ezo).state);
+      } else {
+        it.print(85, 57, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "no data");
+      }
+      // Note: Leaving status icon block blank for EC since no ideal_ec sensor was defined
+
+      // --- Section 3: RTD ---
+      it.filled_rectangle(0, 66, 240, 33, id(color_rtd));
+      it.filled_circle(12, 88, 4, id(color_white));           
+      it.line(10, 85, 10, 72, id(color_white));               
+      it.line(14, 85, 14, 72, id(color_white));               
+      it.line(10, 72, 14, 72, id(color_white));               
+      it.line(12, 85, 12, 76, id(color_white));               
+      it.print(26, 90, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "Tmp");
+      if (id(rtd_ezo).has_state()) {
+        it.printf(85, 90, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.1f C", id(rtd_ezo).state);
+      } else {
+        it.print(85, 90, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "no data");
+      }
+      if (id(ideal_temp_rtd).state) {
+        it.line(215, 86, 219, 90, id(color_white)); it.line(215, 87, 219, 91, id(color_white));
+        it.line(219, 90, 227, 80, id(color_white)); it.line(219, 91, 227, 81, id(color_white));
+      } else {
+        it.line(215, 80, 225, 90, id(color_white)); it.line(215, 81, 225, 91, id(color_white));
+        it.line(215, 90, 225, 80, id(color_white)); it.line(215, 91, 225, 81, id(color_white));
+      }
+      
+      // --- Section 4: DYNAMIC SELECTOR LOGIC ---
+      if (id(display_section_4_select).current_option() == "Dissolved Oxygen") {
+        // Draw DO (Yellow with Black Text)
+        it.filled_rectangle(0, 99, 240, 36, id(color_do));
+        it.circle(10, 122, 5, id(color_black));                 
+        it.circle(18, 113, 3, id(color_black));                 
+        it.print(26, 125, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "DO");
+        
+        if (id(sensor_do_percent).has_state()) {
+          it.printf(85, 125, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "%.1f%%", id(sensor_do_percent).state);
+        } else {
+          it.print(85, 125, id(my_font), id(color_black), TextAlign::BASELINE_LEFT, "...");
+        }
+        
+        // DO Status Check
+        if (id(ideal_do).state) {
+          it.line(215, 121, 219, 125, id(color_black)); it.line(215, 122, 219, 126, id(color_black));
+          it.line(219, 125, 227, 115, id(color_black)); it.line(219, 126, 227, 116, id(color_black));
+        } else {
+          it.line(215, 115, 225, 125, id(color_black)); it.line(215, 116, 225, 126, id(color_black));
+          it.line(215, 125, 225, 115, id(color_black)); it.line(215, 126, 225, 116, id(color_black));
+        }
+
+      } else if (id(display_section_4_select).current_option() == "ORP") {
+        // Draw ORP (Cyan with White Text)
+        it.filled_rectangle(0, 99, 240, 36, id(color_orp));
+        
+        // Lightning Bolt Vector (Shifted down for Section 4)
+        it.line(15, 104, 9, 116, id(color_white));
+        it.line(9, 116, 14, 116, id(color_white));
+        it.line(14, 116, 10, 126, id(color_white));
+        
+        it.print(26, 125, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "ORP");
+        
+        if (id(orp_ezo).has_state()) {
+          it.printf(85, 125, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "%.0f mV", id(orp_ezo).state);
+        } else {
+          it.print(85, 125, id(my_font), id(color_white), TextAlign::BASELINE_LEFT, "...");
+        }
+        
+        // ORP Status Check
+        if (id(ideal_orp).state) {
+          it.line(215, 121, 219, 125, id(color_white)); it.line(215, 122, 219, 126, id(color_white));
+          it.line(219, 125, 227, 115, id(color_white)); it.line(219, 126, 227, 116, id(color_white));
+        } else {
+          it.line(215, 115, 225, 125, id(color_white)); it.line(215, 116, 225, 126, id(color_white));
+          it.line(215, 125, 225, 115, id(color_white)); it.line(215, 126, 225, 116, id(color_white));
+        }
+
+      } else {
+        // Draw "None" (Fills the bottom block with black to prevent artifacts)
+        it.filled_rectangle(0, 99, 240, 36, id(color_black));
+      }
