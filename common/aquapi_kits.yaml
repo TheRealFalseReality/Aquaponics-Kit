@@ -1,13 +1,16 @@
 ---
 substitutions:
   # App Version
-  app_version: "26.6.5"
+  app_version: "26.6.6"
   # github URL
   github_url: "https://github.com/TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific"
 
   sorting_group_name: "AquaPi"
   update_pmp_green: "never"
   update_pmp_red: "never"
+  
+  wq_temp_sensor_id: rtd_ezo
+  wq_ideal_temp_id: ideal_temp_rtd
 
 text_sensor:
   # AquaPi Version
