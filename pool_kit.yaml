@@ -15,12 +15,7 @@ dashboard_import:
 
 
 packages:
-#   TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
-  TheRealFalseReality.device_base: 
-    url: https://github.com/TheRealFalseReality/aquapi
-    ref: main
-    file: common/device_base.yaml
-    refresh: 1s
+  TheRealFalseReality.device_base: github://TheRealFalseReality/aquapi/common/device_base.yaml
   TheRealFalseReality.ph: github://TheRealFalseReality/aquapi/common/ezo_ph.yaml
   TheRealFalseReality.rtd: github://TheRealFalseReality/aquapi/common/ezo_rtd.yaml
   TheRealFalseReality.do: github://TheRealFalseReality/aquapi/common/ezo_do.yaml
