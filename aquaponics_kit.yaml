@@ -8,6 +8,7 @@ substitutions:
   firmware_ota_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin"
   firmware_md5_url: "https://therealfalsereality.github.io/Aquaponics_Pool_Kit-AtlasScientific/firmware/aquaponics-kit-esp32.ota.bin.md5"
   import: "false"
+  wq_orp_sensor_id: wq_dummy_sensor
 
 dashboard_import:
   package_import_url: github://TheRealFalseReality/Aquaponics_Pool_Kit-AtlasScientific/aquaponics_kit.yaml
